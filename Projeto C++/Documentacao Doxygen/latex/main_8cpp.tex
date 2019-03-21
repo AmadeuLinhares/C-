@@ -1,0 +1,185 @@
+\hypertarget{main_8cpp}{}\section{Referência do Arquivo /\+Users/amadeulinhares/\+Desktop/\+Trabalho3/main.cpp}
+\label{main_8cpp}\index{/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/main.\+cpp@{/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/main.\+cpp}}
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}dominios.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}controladoras.\+hpp\char`\"{}}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+O main primeiramente possui cinco variaveis, sendo a primeira chamada login, na qual recebe o email digitado pelo usuario. Outras tres variaveis que serao comparadas com a login, se a variavel login\+Leitor for igual a login entao o usuario entrou como um leitor, se login for igual a variavel login\+Desenvoldedor entao o usuario entrou como desenvolvedor, se login for igual a login\+Administrador entao o usuario logou como administrador e se nao for nenhuma dessas ela sera igual a variavel erro\+Login e o programa sera encerrado.
+
+Dependendo da conta que o usuario entre no programa, objetos desta conta serao criados quando o seu tipo de conta for reconhecido pelos ifs. A duas variaveis do tipo inteiro no main. A primeira chamada de seleciona recebe a opcao escolhida pelo usuario nas opcoes de servico do sistema. Essa variavel e passada para o metodo que ira chamar a opcao escolhida, e entao a variavel progress sera acionada. Se o usuario quiser continuar com a execucao do programa ele ira escolher uma opcao e essa opcao sera armazenada pela variavel progress que ira informar o main da escolhar feita, e o mesmo processo ocorre se o usuario quiser encerrar o programa. 
+\begin{DoxyCode}
+25 \{
+26 
+27 \textcolor{keywordtype}{int} opcaoMenu,opcaoUsuario;
+28 \textcolor{keywordtype}{string} email,senha,resultado;
+29 \mbox{\hyperlink{class_crlt_apresentacao_login}{CrltApresentacaoLogin}} *menu = \textcolor{keyword}{new} \mbox{\hyperlink{class_controladora_apresentacao}{ControladoraApresentacao}}();
+30 \textcolor{keywordtype}{string} loga = \textcolor{stringliteral}{"createUser"};
+31 \textcolor{keywordtype}{int} progress;
+32 
+33   \textcolor{keywordflow}{try}
+34   \{
+35       opcaoMenu = menu->\mbox{\hyperlink{class_crlt_apresentacao_login_a76226b00329c638d6de95458ad87756e}{menu}}();
+36 
+37       \textcolor{keywordflow}{if}(opcaoMenu != 4)
+38       \{
+39         cout << \textcolor{stringliteral}{"E-mail: "};
+40         cin >> email;
+41 
+42         cout << \textcolor{stringliteral}{"Senha: "};
+43         cin >> senha;
+44 
+45         \mbox{\hyperlink{class_crlt_servico_login}{CrltServicoLogin}} *logar = \textcolor{keyword}{new} \mbox{\hyperlink{class_servico_login}{ServicoLogin}}();
+46 
+47         resultado = logar->\mbox{\hyperlink{class_crlt_servico_login_a3a863ed6ef16279d0cdc1d33fd8f5edd}{login}}(opcaoMenu,email,senha);
+48 
+49       \}
+50       \textcolor{keywordflow}{else}
+51       \{
+52 
+53         \mbox{\hyperlink{class_crlt_servico_login}{CrltServicoLogin}} *logar = \textcolor{keyword}{new} \mbox{\hyperlink{class_servico_login}{ServicoLogin}}();
+54 
+55         resultado = logar->\mbox{\hyperlink{class_crlt_servico_login_a3a863ed6ef16279d0cdc1d33fd8f5edd}{login}}(opcaoMenu,loga,loga);
+56       \}
+57 
+58     \textcolor{keywordflow}{if}(resultado == \textcolor{stringliteral}{"leitor"})
+59     \{
+60       \mbox{\hyperlink{class_crlt_apresentacao_usuario}{CrltApresentacaoUsuario}} *userLogado = \textcolor{keyword}{new} 
+      \mbox{\hyperlink{class_controladora_apresentacao_usuario}{ControladoraApresentacaoUsuario}}();
+61       \mbox{\hyperlink{class_servico_usuarios_leitor}{ServicoUsuariosLeitor}} *servicoLeitor = \textcolor{keyword}{new} 
+      \mbox{\hyperlink{class_servico_usuarios_leitor}{ServicoUsuariosLeitor}}();
+62       opcaoUsuario = userLogado->\mbox{\hyperlink{class_crlt_apresentacao_usuario_a627dcf5329233dee6ef2888dacf8a5a1}{opcaoLeitor}}();
+63       servicoLeitor->\mbox{\hyperlink{class_servico_usuarios_leitor_a9a8e9ac18739ef8e75f670236ba90c20}{opcaoEscolhidaLeitor}}(opcaoUsuario,email);
+64       \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+65       \{
+66         cout << \textcolor{stringliteral}{"\(\backslash\)t-> Para ir ao menu principal, digite 1;\(\backslash\)n"};
+67         cout << \textcolor{stringliteral}{"\(\backslash\)t-> Para encerrar o programa, digite 0;\(\backslash\)n"};
+68         cout << \textcolor{stringliteral}{"Opcao desejada: "};
+69         cin >> progress;
+70 
+71         \textcolor{keywordflow}{if}(progress == 1)
+72         \{
+73           opcaoUsuario = userLogado->\mbox{\hyperlink{class_crlt_apresentacao_usuario_a627dcf5329233dee6ef2888dacf8a5a1}{opcaoLeitor}}();
+74           servicoLeitor->\mbox{\hyperlink{class_servico_usuarios_leitor_a9a8e9ac18739ef8e75f670236ba90c20}{opcaoEscolhidaLeitor}}(opcaoUsuario,email);
+75         \}
+76         \textcolor{keywordflow}{else}
+77         \{
+78           \textcolor{keywordflow}{if}(progress == 0)
+79           \{
+80             \textcolor{keywordflow}{break};
+81           \}
+82           \textcolor{keywordflow}{else}
+83           \{
+84             cout << \textcolor{stringliteral}{"Opcao digitada invalida...\(\backslash\)n O programa sera encerrado.\(\backslash\)n"};
+85           \}
+86         \}
+87       \}
+88     \}
+89     \textcolor{keywordflow}{else}
+90     \{
+91       \textcolor{keywordflow}{if}(resultado == \textcolor{stringliteral}{"desenvolvedor"})
+92       \{
+93         \mbox{\hyperlink{class_crlt_apresentacao_usuario}{CrltApresentacaoUsuario}} *userLogado = \textcolor{keyword}{new} 
+      \mbox{\hyperlink{class_controladora_apresentacao_usuario}{ControladoraApresentacaoUsuario}}();
+94         \mbox{\hyperlink{class_servico_usuarios_desenvolvedor}{ServicoUsuariosDesenvolvedor}} *servicoDesenvolvedor = \textcolor{keyword}{new} 
+      \mbox{\hyperlink{class_servico_usuarios_desenvolvedor}{ServicoUsuariosDesenvolvedor}}();
+95         opcaoUsuario = userLogado->\mbox{\hyperlink{class_crlt_apresentacao_usuario_ad9091cb4093bdc687c0deffb5b00512c}{opcaoDesenvolvedor}}();
+96         servicoDesenvolvedor->\mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a0214220e4cbac89da4ca22b10ac57c4e}{opcaoEscolhidaDesenvolvedor}}(opcaoUsuario,email);
+97 
+98         \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+99         \{
+100           cout << \textcolor{stringliteral}{"\(\backslash\)t-> Para ir ao menu principal, digite 1;\(\backslash\)n"};
+101           cout << \textcolor{stringliteral}{"\(\backslash\)t-> Para encerrar o programa, digite 0;\(\backslash\)n"};
+102           cout << \textcolor{stringliteral}{"Opcao desejada: "};
+103           cin >> progress;
+104 
+105           \textcolor{keywordflow}{if}(progress == 1)
+106           \{
+107             opcaoUsuario = userLogado->\mbox{\hyperlink{class_crlt_apresentacao_usuario_ad9091cb4093bdc687c0deffb5b00512c}{opcaoDesenvolvedor}}();
+108             servicoDesenvolvedor->\mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a0214220e4cbac89da4ca22b10ac57c4e}{opcaoEscolhidaDesenvolvedor}}(opcaoUsuario,email
+      );
+109           \}
+110           \textcolor{keywordflow}{else}
+111           \{
+112             \textcolor{keywordflow}{if}(progress == 0)
+113             \{
+114               \textcolor{keywordflow}{break};
+115             \}
+116             \textcolor{keywordflow}{else}
+117             \{
+118               cout << \textcolor{stringliteral}{"Opcao digitada invalida...\(\backslash\)n O programa sera encerrado.\(\backslash\)n"};
+119             \}
+120           \}
+121         \}
+122 
+123       \}
+124       \textcolor{keywordflow}{else}
+125       \{
+126         \textcolor{keywordflow}{if}(resultado == \textcolor{stringliteral}{"administrador"})
+127         \{
+128           \mbox{\hyperlink{class_crlt_apresentacao_usuario}{CrltApresentacaoUsuario}} *userLogado = \textcolor{keyword}{new} 
+      \mbox{\hyperlink{class_controladora_apresentacao_usuario}{ControladoraApresentacaoUsuario}}();
+129           \mbox{\hyperlink{class_servico_usuarios_administrador}{ServicoUsuariosAdministrador}} *servicoAdministrador = \textcolor{keyword}{new} 
+      \mbox{\hyperlink{class_servico_usuarios_administrador}{ServicoUsuariosAdministrador}}();
+130           opcaoUsuario = userLogado->\mbox{\hyperlink{class_crlt_apresentacao_usuario_aa4e0600a397ea82224441793424d7daa}{opcaoAdministrador}}();
+131           servicoAdministrador->\mbox{\hyperlink{class_servico_usuarios_administrador_abf155b3f2f19bf2ab2e3329a1587c750}{opcaoEscolhidaAdministrador}}(opcaoUsuario,email);
+132 
+133           \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+134           \{
+135             cout << \textcolor{stringliteral}{"\(\backslash\)t-> Para ir ao menu principal, digite 1;\(\backslash\)n"};
+136             cout << \textcolor{stringliteral}{"\(\backslash\)t-> Para encerrar o programa, digite 0;\(\backslash\)n"};
+137             cout << \textcolor{stringliteral}{"Opcao desejada: "};
+138             cin >> progress;
+139 
+140             \textcolor{keywordflow}{if}(progress == 1)
+141             \{
+142               opcaoUsuario = userLogado->\mbox{\hyperlink{class_crlt_apresentacao_usuario_aa4e0600a397ea82224441793424d7daa}{opcaoAdministrador}}();
+143               servicoAdministrador->\mbox{\hyperlink{class_servico_usuarios_administrador_abf155b3f2f19bf2ab2e3329a1587c750}{opcaoEscolhidaAdministrador}}(opcaoUsuario,
+      email);
+144             \}
+145             \textcolor{keywordflow}{else}
+146             \{
+147               \textcolor{keywordflow}{if}(progress == 0)
+148               \{
+149                 \textcolor{keywordflow}{break};
+150               \}
+151               \textcolor{keywordflow}{else}
+152               \{
+153                 cout << \textcolor{stringliteral}{"Opcao digitada invalida...\(\backslash\)n O programa sera encerrado.\(\backslash\)n"};
+154               \}
+155             \}
+156           \}
+157 
+158         \}
+159         \textcolor{keywordflow}{else}
+160         \{
+161           cout << \textcolor{stringliteral}{"\(\backslash\)tErro, conta digitada nao consta em nosso banco de dados...\(\backslash\)n"};
+162           cout << \textcolor{stringliteral}{"\(\backslash\)tEncerrando programa....\(\backslash\)n"};
+163           cout << \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)tPrograma Encerrado\(\backslash\)n\(\backslash\)n"};
+164         \}
+165       \}
+166     \}
+167 
+168 
+169 \}
+170 \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+171 \{
+172   cout << erro << endl;
+173 \}
+174 \textcolor{keywordflow}{return} 0;
+175 \}
+\end{DoxyCode}

@@ -1,0 +1,163 @@
+\hypertarget{comando_sql_8hpp}{}\section{Referência do Arquivo /\+Users/amadeulinhares/\+Desktop/\+Trabalho3/comando\+Sql.hpp}
+\label{comando_sql_8hpp}\index{/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/comando\+Sql.\+hpp@{/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/comando\+Sql.\+hpp}}
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}sqlite3.\+h\char`\"{}}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{comando_sql_8hpp_a11795553ffda6a92d45cb7e29b8eb308}{callback}} (void $\ast$Not\+Used, int argc, char $\ast$$\ast$argv, char $\ast$$\ast$az\+Col\+Name)
+\item 
+int \mbox{\hyperlink{comando_sql_8hpp_a633a0b87e6531235756c25e7cef19300}{callback\+Rows}} (void $\ast$Not\+Used, int argc, char $\ast$$\ast$argv, char $\ast$$\ast$az\+Col\+Name)
+\item 
+void \mbox{\hyperlink{comando_sql_8hpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectar\+Db\+Usuario}} ()
+\item 
+void \mbox{\hyperlink{comando_sql_8hpp_a969be9911913568e30d4ae8963338bc3}{desconectar\+Db\+Usuario}} ()
+\item 
+int \mbox{\hyperlink{comando_sql_8hpp_a748197580e7f9acdbf48c78de1f7924b}{execut\+Db\+Usuario}} (string query)
+\item 
+int \mbox{\hyperlink{comando_sql_8hpp_af54952694f2fa7d76f969fb74b853cb9}{execut\+Db\+Usuario\+Rows}} (string query)
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{comando_sql_8hpp_a11795553ffda6a92d45cb7e29b8eb308}\label{comando_sql_8hpp_a11795553ffda6a92d45cb7e29b8eb308}} 
+\index{comando\+Sql.\+hpp@{comando\+Sql.\+hpp}!callback@{callback}}
+\index{callback@{callback}!comando\+Sql.\+hpp@{comando\+Sql.\+hpp}}
+\subsubsection{\texorpdfstring{callback()}{callback()}}
+{\footnotesize\ttfamily int callback (\begin{DoxyParamCaption}\item[{void $\ast$}]{Not\+Used,  }\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv,  }\item[{char $\ast$$\ast$}]{az\+Col\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+17 \{
+18   \textcolor{keywordtype}{int} i;
+19   cout << \textcolor{stringliteral}{"\(\backslash\)t---------------- DADOS ------------------\(\backslash\)n\(\backslash\)n"};
+20   \textcolor{keywordflow}{for}(i = 0 ; i < argc ; i++)
+21   \{
+22     cout << azColName[i] << \textcolor{stringliteral}{" = "};
+23     \textcolor{keywordflow}{if}(argv[i])
+24     \{
+25       cout << argv[i] << \textcolor{stringliteral}{"\(\backslash\)n"};
+26     \}
+27     \textcolor{keywordflow}{else}
+28     \{
+29       cout << \textcolor{stringliteral}{"Valor nao encontrado\(\backslash\)n"};
+30     \}
+31   \}
+32   cout << endl;
+33   \textcolor{keywordflow}{return} 0;
+34 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comando_sql_8hpp_a633a0b87e6531235756c25e7cef19300}\label{comando_sql_8hpp_a633a0b87e6531235756c25e7cef19300}} 
+\index{comando\+Sql.\+hpp@{comando\+Sql.\+hpp}!callback\+Rows@{callback\+Rows}}
+\index{callback\+Rows@{callback\+Rows}!comando\+Sql.\+hpp@{comando\+Sql.\+hpp}}
+\subsubsection{\texorpdfstring{callback\+Rows()}{callbackRows()}}
+{\footnotesize\ttfamily int callback\+Rows (\begin{DoxyParamCaption}\item[{void $\ast$}]{Not\+Used,  }\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv,  }\item[{char $\ast$$\ast$}]{az\+Col\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+10 \{
+11   \mbox{\hyperlink{comando_sql_8cpp_a3e4e172face910b879c543c7fffae445}{ResultadoPesquisa}} = atoi(argv[0]);
+12 
+13   \textcolor{keywordflow}{return} 0;
+14 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comando_sql_8hpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}\label{comando_sql_8hpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}} 
+\index{comando\+Sql.\+hpp@{comando\+Sql.\+hpp}!conectar\+Db\+Usuario@{conectar\+Db\+Usuario}}
+\index{conectar\+Db\+Usuario@{conectar\+Db\+Usuario}!comando\+Sql.\+hpp@{comando\+Sql.\+hpp}}
+\subsubsection{\texorpdfstring{conectar\+Db\+Usuario()}{conectarDbUsuario()}}
+{\footnotesize\ttfamily void conectar\+Db\+Usuario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+39 \{
+40   \textcolor{keywordtype}{int} conect = \mbox{\hyperlink{sqlite3_8h_a0bec0abd6d4c319d9340add743825d60}{sqlite3\_open}}(\textcolor{stringliteral}{"Usuarios.db"}, &\mbox{\hyperlink{comando_sql_8cpp_a8ae020ac02b932029fe8d3ef15b36b33}{DataBaseSLQ}});
+41   \textcolor{keywordflow}{if}(conect != \mbox{\hyperlink{sqlite3_8h_a650d09c7bec7ddadb7c8aa3519dc842c}{SQLITE\_OK}})
+42   \{
+43     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)nErro ao conectar com bando de dados\(\backslash\)n"};
+44   \}
+45   \textcolor{keywordflow}{else}
+46   \{
+47     cout << \textcolor{stringliteral}{"\(\backslash\)nConexao com banco de dados realizada com sucesso\(\backslash\)n\(\backslash\)n"};
+48   \}
+49 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comando_sql_8hpp_a969be9911913568e30d4ae8963338bc3}\label{comando_sql_8hpp_a969be9911913568e30d4ae8963338bc3}} 
+\index{comando\+Sql.\+hpp@{comando\+Sql.\+hpp}!desconectar\+Db\+Usuario@{desconectar\+Db\+Usuario}}
+\index{desconectar\+Db\+Usuario@{desconectar\+Db\+Usuario}!comando\+Sql.\+hpp@{comando\+Sql.\+hpp}}
+\subsubsection{\texorpdfstring{desconectar\+Db\+Usuario()}{desconectarDbUsuario()}}
+{\footnotesize\ttfamily void desconectar\+Db\+Usuario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+52 \{
+53   \textcolor{keywordtype}{int} desconect = \mbox{\hyperlink{sqlite3_8h_a2bed731544ef093a4bcec9203cb1aaef}{sqlite3\_close}}(\mbox{\hyperlink{comando_sql_8cpp_a8ae020ac02b932029fe8d3ef15b36b33}{DataBaseSLQ}});
+54   \textcolor{keywordflow}{if}(desconect != \mbox{\hyperlink{sqlite3_8h_a650d09c7bec7ddadb7c8aa3519dc842c}{SQLITE\_OK}})
+55   \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro ao desconectar o banco de dados\(\backslash\)n"};
+56 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comando_sql_8hpp_a748197580e7f9acdbf48c78de1f7924b}\label{comando_sql_8hpp_a748197580e7f9acdbf48c78de1f7924b}} 
+\index{comando\+Sql.\+hpp@{comando\+Sql.\+hpp}!execut\+Db\+Usuario@{execut\+Db\+Usuario}}
+\index{execut\+Db\+Usuario@{execut\+Db\+Usuario}!comando\+Sql.\+hpp@{comando\+Sql.\+hpp}}
+\subsubsection{\texorpdfstring{execut\+Db\+Usuario()}{executDbUsuario()}}
+{\footnotesize\ttfamily int execut\+Db\+Usuario (\begin{DoxyParamCaption}\item[{string}]{query }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+59 \{
+60   \textcolor{keywordtype}{int} resultado = \mbox{\hyperlink{sqlite3_8h_a1cad78c574b81af1ae198449fdf94db1}{sqlite3\_exec}}(\mbox{\hyperlink{comando_sql_8cpp_a8ae020ac02b932029fe8d3ef15b36b33}{DataBaseSLQ}}, query.c\_str(), 
+      \mbox{\hyperlink{comando_sql_8cpp_a11795553ffda6a92d45cb7e29b8eb308}{callback}}, 0, &\mbox{\hyperlink{comando_sql_8cpp_a7f92c11421e64597ea1cf18953e49829}{mensagemCMD}});
+61 
+62   \textcolor{keywordflow}{if}(resultado != \mbox{\hyperlink{sqlite3_8h_a650d09c7bec7ddadb7c8aa3519dc842c}{SQLITE\_OK}})
+63   \{
+64     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)nErro na execucao da query\(\backslash\)n"};
+65   \}
+66   \textcolor{keywordflow}{else}
+67   \{
+68     cout << \textcolor{stringliteral}{"Comando executado com sucesso"} << endl;
+69   \}
+70 
+71   \textcolor{keywordflow}{if}(\mbox{\hyperlink{comando_sql_8cpp_a3e4e172face910b879c543c7fffae445}{ResultadoPesquisa}} == 0)
+72   \{
+73     \textcolor{keywordflow}{return} -1;
+74   \}
+75   \textcolor{keywordflow}{else}
+76   \{
+77     \textcolor{keywordflow}{return} \mbox{\hyperlink{comando_sql_8cpp_a3e4e172face910b879c543c7fffae445}{ResultadoPesquisa}};
+78   \}
+79 
+80 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{comando_sql_8hpp_af54952694f2fa7d76f969fb74b853cb9}\label{comando_sql_8hpp_af54952694f2fa7d76f969fb74b853cb9}} 
+\index{comando\+Sql.\+hpp@{comando\+Sql.\+hpp}!execut\+Db\+Usuario\+Rows@{execut\+Db\+Usuario\+Rows}}
+\index{execut\+Db\+Usuario\+Rows@{execut\+Db\+Usuario\+Rows}!comando\+Sql.\+hpp@{comando\+Sql.\+hpp}}
+\subsubsection{\texorpdfstring{execut\+Db\+Usuario\+Rows()}{executDbUsuarioRows()}}
+{\footnotesize\ttfamily int execut\+Db\+Usuario\+Rows (\begin{DoxyParamCaption}\item[{string}]{query }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+83 \{
+84   \textcolor{keywordtype}{int} resultado = \mbox{\hyperlink{sqlite3_8h_a1cad78c574b81af1ae198449fdf94db1}{sqlite3\_exec}}(\mbox{\hyperlink{comando_sql_8cpp_a8ae020ac02b932029fe8d3ef15b36b33}{DataBaseSLQ}}, query.c\_str(), 
+      \mbox{\hyperlink{comando_sql_8cpp_a633a0b87e6531235756c25e7cef19300}{callbackRows}}, 0, &\mbox{\hyperlink{comando_sql_8cpp_a7f92c11421e64597ea1cf18953e49829}{mensagemCMD}});
+85 
+86   \textcolor{keywordflow}{if}(resultado != \mbox{\hyperlink{sqlite3_8h_a650d09c7bec7ddadb7c8aa3519dc842c}{SQLITE\_OK}})
+87   \{
+88     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)nErro na execucao da query\(\backslash\)n"};
+89   \}
+90   \textcolor{keywordflow}{else}
+91   \{
+92     cout << \textcolor{stringliteral}{"Comando executado com sucesso\(\backslash\)n"} << endl;
+93   \}
+94 
+95   \textcolor{keywordflow}{if}(\mbox{\hyperlink{comando_sql_8cpp_a3e4e172face910b879c543c7fffae445}{ResultadoPesquisa}} == 0)
+96   \{
+97     \textcolor{keywordflow}{return} -1;
+98   \}
+99   \textcolor{keywordflow}{else}
+100   \{
+101     \textcolor{keywordflow}{return} \mbox{\hyperlink{comando_sql_8cpp_a3e4e172face910b879c543c7fffae445}{ResultadoPesquisa}};
+102   \}
+103 
+104 \}
+\end{DoxyCode}

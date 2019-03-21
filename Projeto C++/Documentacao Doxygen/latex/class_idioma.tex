@@ -1,0 +1,70 @@
+\hypertarget{class_idioma}{}\section{Referência da Classe Idioma}
+\label{class_idioma}\index{Idioma@{Idioma}}
+
+
+{\ttfamily \#include $<$dominios.\+hpp$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_idioma_a5c15660dcb0cec1db37a013b990d9895}{set\+Idioma}} (string idioma)
+\item 
+string \mbox{\hyperlink{class_idioma_ab2f6141eec870d6c40f6ec8d32e68231}{get\+Idioma}} ()
+\item 
+void \mbox{\hyperlink{class_idioma_a8ea40be7a7fed00c55455009cfc6fc6a}{verifica\+Idioma}} (string idioma)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+D\+E\+C\+L\+A\+R\+A\+C\+AO C\+L\+A\+S\+SE I\+D\+I\+O\+MA 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_idioma_ab2f6141eec870d6c40f6ec8d32e68231}\label{class_idioma_ab2f6141eec870d6c40f6ec8d32e68231}} 
+\index{Idioma@{Idioma}!get\+Idioma@{get\+Idioma}}
+\index{get\+Idioma@{get\+Idioma}!Idioma@{Idioma}}
+\subsubsection{\texorpdfstring{get\+Idioma()}{getIdioma()}}
+{\footnotesize\ttfamily string Idioma\+::get\+Idioma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+473 \{
+474   \textcolor{keywordflow}{return} this->idioma;
+475 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_idioma_a5c15660dcb0cec1db37a013b990d9895}\label{class_idioma_a5c15660dcb0cec1db37a013b990d9895}} 
+\index{Idioma@{Idioma}!set\+Idioma@{set\+Idioma}}
+\index{set\+Idioma@{set\+Idioma}!Idioma@{Idioma}}
+\subsubsection{\texorpdfstring{set\+Idioma()}{setIdioma()}}
+{\footnotesize\ttfamily void Idioma\+::set\+Idioma (\begin{DoxyParamCaption}\item[{string}]{idioma }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+467 \{
+468   \mbox{\hyperlink{class_idioma_a8ea40be7a7fed00c55455009cfc6fc6a}{verificaIdioma}}(idioma);
+469   this->idioma = idioma;
+470 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_idioma_a8ea40be7a7fed00c55455009cfc6fc6a}\label{class_idioma_a8ea40be7a7fed00c55455009cfc6fc6a}} 
+\index{Idioma@{Idioma}!verifica\+Idioma@{verifica\+Idioma}}
+\index{verifica\+Idioma@{verifica\+Idioma}!Idioma@{Idioma}}
+\subsubsection{\texorpdfstring{verifica\+Idioma()}{verificaIdioma()}}
+{\footnotesize\ttfamily void Idioma\+::verifica\+Idioma (\begin{DoxyParamCaption}\item[{string}]{idioma }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+478 \{
+479   \textcolor{keywordflow}{if}( (idioma != \textcolor{stringliteral}{"ENG"}) && (idioma != \textcolor{stringliteral}{"FRA"}) && (idioma != \textcolor{stringliteral}{"GER"}) && (idioma != \textcolor{stringliteral}{"ITA"}) && (idioma != \textcolor{stringliteral}{"POR"})
+       && (idioma != \textcolor{stringliteral}{"SPA"}) )
+480   \{
+481     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro: Idioma Invalido\(\backslash\)n Formato correto para Idioma: ENG / FRA / ITA / POR\(\backslash\)n Por favor escolha um
+       dos idiomas listados acima\(\backslash\)n"};
+482   \}
+483 
+484 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8cpp}{dominios.\+cpp}}\end{DoxyCompactItemize}

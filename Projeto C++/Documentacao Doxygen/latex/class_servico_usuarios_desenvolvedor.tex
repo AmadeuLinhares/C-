@@ -1,0 +1,1067 @@
+\hypertarget{class_servico_usuarios_desenvolvedor}{}\section{Referência da Classe Servico\+Usuarios\+Desenvolvedor}
+\label{class_servico_usuarios_desenvolvedor}\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+
+
+{\ttfamily \#include $<$servico.\+hpp$>$}
+
+Diagrama de hierarquia para Servico\+Usuarios\+Desenvolvedor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_servico_usuarios_desenvolvedor}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a0214220e4cbac89da4ca22b10ac57c4e}{opcao\+Escolhida\+Desenvolvedor}} (int opcao, string email)
+\item 
+int \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a552cca1c14e7c9dd87600062d524ffa8}{consultar\+Cadastro\+Desenvolvedor}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_ad536645995beed517216ed96206ae018}{excluir\+Usuario\+Desenvolvedor}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a2dc1811265f101d3ce14150594b25e88}{atualizar\+Usuario\+Desenvolvedor}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_ad4f1b230cdb25ff8a2b8ae0010e99382}{list\+Nome\+Vocabularios}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a5748ea9d0e56ffcad31ad486ecb8b79f}{list\+Dados\+Vocabulario}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a9c4a519147798c77d3fb6406f8078b9f}{consultar\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_aa125405f5b747e4e7bbacebd28934e72}{consultar\+Definicao\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a1708877c02739b2447862b2e2349267d}{cadastra\+Desenvolvedor\+Voc\+Controlado}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_ab378812b1e6b4d648fb8860cf8444210}{cria\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_afb392520e6ea1209abb42ad0327673e0}{editar\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a20712917886eaf28a2a9b308d14d7b04}{excluir\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a851c2a4b054df2a14f66c451f4656d52}{cria\+Definicao}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a422f9a3ee77a0d560858c9f7c266b9ee}{excluir\+Definicao}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a2a1063014d21344c6ec9a101741e5a4e}{editar\+Definicao}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a2dc1811265f101d3ce14150594b25e88}\label{class_servico_usuarios_desenvolvedor_a2dc1811265f101d3ce14150594b25e88}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!atualizar\+Usuario\+Desenvolvedor@{atualizar\+Usuario\+Desenvolvedor}}
+\index{atualizar\+Usuario\+Desenvolvedor@{atualizar\+Usuario\+Desenvolvedor}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{atualizar\+Usuario\+Desenvolvedor()}{atualizarUsuarioDesenvolvedor()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::atualizar\+Usuario\+Desenvolvedor (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Nesse processo, similar ao do cadastro, todas as informacoes do desenvolvedor terao de ser atualizadas, nem que seja para coloca-\/las iguais, porem irao mesmo assim passar por uma nova validacao antes de serem gravadas no DB
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a63705805bc01450509e7719e2a57b1da}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+656 \{
+662   \mbox{\hyperlink{class_sobrenome}{Sobrenome}} *sobrenome = \textcolor{keyword}{new} \mbox{\hyperlink{class_sobrenome}{Sobrenome}}();
+663   \mbox{\hyperlink{class_email}{Email}} *emailAtualiza = \textcolor{keyword}{new} \mbox{\hyperlink{class_email}{Email}}();
+664   \mbox{\hyperlink{class_data}{Data}} *data = \textcolor{keyword}{new} \mbox{\hyperlink{class_data}{Data}}();
+665   \mbox{\hyperlink{class_senha}{Senha}} *senha = \textcolor{keyword}{new} \mbox{\hyperlink{class_senha}{Senha}}();
+666   \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+667   \textcolor{comment}{//Leitor *leitor = new Leitor();}
+668   \textcolor{keywordtype}{string} entrada;
+669   \textcolor{keywordtype}{int} recebe;
+670   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+671   \{
+672       \textcolor{keywordflow}{try}
+673       \{
+674         cout << \textcolor{stringliteral}{"Nome: "};
+675         cin >> entrada;
+676         nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+677         \textcolor{comment}{//leitor->setNome(nome);}
+678 
+679         cout << \textcolor{stringliteral}{"Sobrenome: "};
+680         cin >> entrada;
+681         sobrenome->\mbox{\hyperlink{class_sobrenome_a9dc2277e3600656838e47c86dfddd23a}{setSobrenome}}(entrada);
+682 
+683         cout << \textcolor{stringliteral}{"Data de Nascimento: "};
+684         cin >> entrada;
+685         data->\mbox{\hyperlink{class_data_a5245638838a033c98a8b760836dddb7d}{setData}}(entrada);
+686 
+687         cout << \textcolor{stringliteral}{"Email: "};
+688         cin >> entrada;
+689         emailAtualiza->\mbox{\hyperlink{class_email_a2614b3a19d961411d1bece9c1bdf616f}{setEmail}}(entrada);
+690 
+691         cout << \textcolor{stringliteral}{"Senha: "};
+692         cin >> entrada;
+693         senha->\mbox{\hyperlink{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}{setSenha}}(entrada,nome);
+694 
+695         \textcolor{keywordflow}{break};
+696       \}
+697       \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+698       \{
+699         cout << erro << endl;
+700       \}
+701     \}
+702 
+703   queryAtualiza = \textcolor{stringliteral}{"update Leitores set nome = '"};
+704   queryAtualiza += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+705   queryAtualiza += \textcolor{stringliteral}{"',sobrenome = '"};
+706   queryAtualiza += sobrenome->\mbox{\hyperlink{class_sobrenome_a954491366ce07f6715f32a97d67edf04}{getSobrenome}}();
+707   queryAtualiza += \textcolor{stringliteral}{"',data = '"};
+708   queryAtualiza += data->\mbox{\hyperlink{class_data_afc7b15a5e81334858e48709b2f45cdc3}{getData}}();
+709   queryAtualiza += \textcolor{stringliteral}{"',email = '"};
+710   queryAtualiza += emailAtualiza->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+711   queryAtualiza += \textcolor{stringliteral}{"',senha = '"};
+712   queryAtualiza += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+713   queryAtualiza += \textcolor{stringliteral}{"' where email = '"};
+714   queryAtualiza += email;
+715   queryAtualiza += \textcolor{stringliteral}{"';"};
+716 
+717   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+718   recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryAtualiza);
+719   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+720 
+721   cout <<\textcolor{stringliteral}{"QUERY: "} << queryAtualiza << endl;
+722 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a1708877c02739b2447862b2e2349267d}\label{class_servico_usuarios_desenvolvedor_a1708877c02739b2447862b2e2349267d}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!cadastra\+Desenvolvedor\+Voc\+Controlado@{cadastra\+Desenvolvedor\+Voc\+Controlado}}
+\index{cadastra\+Desenvolvedor\+Voc\+Controlado@{cadastra\+Desenvolvedor\+Voc\+Controlado}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{cadastra\+Desenvolvedor\+Voc\+Controlado()}{cadastraDesenvolvedorVocControlado()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::cadastra\+Desenvolvedor\+Voc\+Controlado (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Nessa funcao, um novo desenvolvedor sera cadastrado. Para se cadastrar como desenvolvedor de um vocabulario controlado, primeiramente precisamos verificar se esse vocabulario existe, e é isso que o programa faz. Primeiramente ele executa uma query em busca desse vocabulario, achado esse vocabulario, o email do desenvolvedor e consultado na tabela desse vocabulario para verificar se ele ja nao possui cadastro. Nao possuindo cadastro, agora sim, uma query sera montada para realizar seu cadastro como desenvolvedor desse vocabulario
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a8eb6d3af46ac497a394882ef0fe32eb1}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+856 \{
+865   \textcolor{keywordtype}{string} vocabulario;
+866   \textcolor{keywordtype}{string} query;
+867   \textcolor{keywordtype}{int} resultado;
+868 
+869       cout << \textcolor{stringliteral}{"Digite o nome do vocabulario controlado no qual deseja se cadastrar: "};
+870       cin >> vocabulario;
+871 
+872       query = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where nomeVocabulario = '"};
+873       query += vocabulario;
+874       query += \textcolor{stringliteral}{"';"};
+875 
+876 
+877       \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+878       resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+879 
+880       \textcolor{keywordflow}{if}(resultado == -1)
+881       \{
+882         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, Vocabulario Controlado nao encontrado\(\backslash\)n"};
+883       \}
+884 
+885         query = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where desenvolvedores = '"};
+886         query += email;
+887         query += \textcolor{stringliteral}{"';"};
+888         resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+889 
+890         \textcolor{keywordflow}{if}(resultado != -1)
+891         \{
+892           \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Usuario ja possui cadastrado\(\backslash\)n"};
+893         \}
+894 
+895 
+896         query = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where nome nomeVocabulario = '"};
+897         query += vocabulario;
+898         query += \textcolor{stringliteral}{"';"};
+899 
+900         resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+901 
+902         \textcolor{keywordflow}{if}(resultado >= 10)
+903         \{
+904           \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Numero de desenvolvedores esgotado para esse Vocabulario;\(\backslash\)n"};
+905         \}
+906 
+907 
+908 
+909         query = \textcolor{stringliteral}{"insert into Vocabulario\_Controlado (nomeVocabulario, idioma, emailAdmin)"};
+910         query += \textcolor{stringliteral}{"select nomeVocabulario, idioma, emailAdmin from Vocabulario\_Controlado where
+       nomeVocabulario = '"};
+911         query += vocabulario;
+912         query += \textcolor{stringliteral}{"' and desenvolvedores = '-';"};
+913 
+914         resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+915 
+916         query = \textcolor{stringliteral}{"update Vocabulario\_Controlado set desenvolvedores = '"};
+917         query += email;
+918         query += \textcolor{stringliteral}{"' where desenvolvedores is null and nomeVocabulario = '"};
+919         query += vocabulario;
+920         query += \textcolor{stringliteral}{"';"};
+921 
+922         resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+923 
+924         cout << \textcolor{stringliteral}{"Processando comandos....\(\backslash\)n\(\backslash\)n"};
+925 
+926         query = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where desenvolvedores = '"};
+927         query += email;
+928         query += \textcolor{stringliteral}{"';"};
+929 
+930           resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+931 
+932           \textcolor{keywordflow}{if}(resultado != -1)
+933           \{
+934             cout << \textcolor{stringliteral}{"Desenvolvedor adicionado com sucesso....\(\backslash\)n\(\backslash\)n"};
+935           \}
+936           \textcolor{keywordflow}{else}
+937           \{
+938             \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro na execução do comando\(\backslash\)n\(\backslash\)n"};
+939           \}
+940 
+941 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a552cca1c14e7c9dd87600062d524ffa8}\label{class_servico_usuarios_desenvolvedor_a552cca1c14e7c9dd87600062d524ffa8}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!consultar\+Cadastro\+Desenvolvedor@{consultar\+Cadastro\+Desenvolvedor}}
+\index{consultar\+Cadastro\+Desenvolvedor@{consultar\+Cadastro\+Desenvolvedor}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{consultar\+Cadastro\+Desenvolvedor()}{consultarCadastroDesenvolvedor()}}
+{\footnotesize\ttfamily int Servico\+Usuarios\+Desenvolvedor\+::consultar\+Cadastro\+Desenvolvedor (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Utiliza uma query simples de pesquisa onde atraves do parametro passado pela funcao, consegue exibir na tela os dados do desenvolvedor logado
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_ad0e0d85a9a4763960f021fca4cf36f29}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+519 \{
+524   queryConsulta = \textcolor{stringliteral}{"select * from Desenvolvedores where email= '"};
+525   queryConsulta += email;
+526   queryConsulta += \textcolor{stringliteral}{"';"};
+527   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+528 
+529   cout << \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t------------- Dados do Usuario -----------------\(\backslash\)n"};
+530 
+531   resultadoQueryUsuario = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryConsulta);
+532 
+533   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+534 
+535   \textcolor{keywordflow}{return} resultadoQueryUsuario;
+536 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_aa125405f5b747e4e7bbacebd28934e72}\label{class_servico_usuarios_desenvolvedor_aa125405f5b747e4e7bbacebd28934e72}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!consultar\+Definicao\+Termo@{consultar\+Definicao\+Termo}}
+\index{consultar\+Definicao\+Termo@{consultar\+Definicao\+Termo}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{consultar\+Definicao\+Termo()}{consultarDefinicaoTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::consultar\+Definicao\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_acde5327b99fb4357276c4b0ab83fa20b}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+818 \{
+819   \textcolor{keywordtype}{string} nomeTermo;
+820   \textcolor{keywordtype}{string} queryVerifica;
+821   \textcolor{keywordtype}{int} recebe;
+822 
+823   cout << \textcolor{stringliteral}{"Digite o nome do Termo no qual deseja consultar sua definicao: "};
+824   cin >> nomeTermo;
+825 
+826 
+827   queryVerifica = \textcolor{stringliteral}{"select count(*) from Termo inner join Definicao on Termo.nome = '"};
+828   queryVerifica += nomeTermo;
+829   queryVerifica += \textcolor{stringliteral}{"' and Definicao.termos = '"};
+830   queryVerifica += nomeTermo;
+831   queryVerifica += \textcolor{stringliteral}{"';"};
+832 
+833   cout << \textcolor{stringliteral}{"QUERY: "} <<  queryVerifica << endl;
+834 
+835   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+836   recebe = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryVerifica);
+837 
+838   cout << \textcolor{stringliteral}{"VALOR: "} << recebe << endl;
+839 
+840   \textcolor{keywordflow}{if}(recebe > 0)
+841   \{
+842     queryVerifica = \textcolor{stringliteral}{"select texto from Definicao where termos = '"};
+843     queryVerifica += nomeTermo;
+844     queryVerifica += \textcolor{stringliteral}{"';"};
+845     recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryVerifica);
+846   \}
+847   \textcolor{keywordflow}{else}
+848   \{
+849     cout << \textcolor{stringliteral}{"Definicao para o termo "} << nomeTermo << \textcolor{stringliteral}{" nao foi encontrada"} << endl;
+850   \}
+851 
+852   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+853 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a9c4a519147798c77d3fb6406f8078b9f}\label{class_servico_usuarios_desenvolvedor_a9c4a519147798c77d3fb6406f8078b9f}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!consultar\+Termo@{consultar\+Termo}}
+\index{consultar\+Termo@{consultar\+Termo}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{consultar\+Termo()}{consultarTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::consultar\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Primeiramente o nome do termo e pedido, e assim que colocado, uma pesquisa sera feita no DB em busca desse nome. Se o termo realmente existir, uma query sera criada para apresentar os dados desse termo, se nao, a funcao caira no catch
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a328f8ac2978c844ed4331d61ebfce32a}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+780 \{
+786   \textcolor{keywordtype}{string} nomeTermo;
+787   \textcolor{keywordtype}{string} queryVerifica;
+788   \textcolor{keywordtype}{int} recebe;
+789 
+790   cout << \textcolor{stringliteral}{"Digite o nome do Termo que deseja consultar: "};
+791   cin >> nomeTermo;
+792 
+793 
+794   queryVerifica = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+795   queryVerifica += nomeTermo;
+796   queryVerifica += \textcolor{stringliteral}{"';"};
+797 
+798   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+799   recebe = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryVerifica);
+800 
+801   \textcolor{keywordflow}{if}(recebe > 0)
+802       \{
+803         queryVerifica = \textcolor{stringliteral}{"select * from Termo where nome = '"};
+804         queryVerifica += nomeTermo;
+805         queryVerifica += \textcolor{stringliteral}{"';"};
+806         recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryVerifica);
+807       \}
+808   \textcolor{keywordflow}{else}
+809       \{
+810         cout << \textcolor{stringliteral}{"Termo nao consta em nosso banco de dados\(\backslash\)n"} << endl;
+811       \}
+812 
+813       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+814 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a851c2a4b054df2a14f66c451f4656d52}\label{class_servico_usuarios_desenvolvedor_a851c2a4b054df2a14f66c451f4656d52}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!cria\+Definicao@{cria\+Definicao}}
+\index{cria\+Definicao@{cria\+Definicao}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{cria\+Definicao()}{criaDefinicao()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::cria\+Definicao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Para criar uma definicao primeiramente e necessario verificar a qual termo ela ira se aplicar. informando o termo, esse mesmo sera chedado, e verificado se ele existe no banco de dados. Validando sua existencia o programa pedira para o usuario digitar sua definicao para esse termo, porem lembrando que se esse termo ja possuir definicao, elas serao contabilizadas, sendo 5 o numero maximo para definicoes de cada termo
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_af9f1bd8b7ec576adb4bc2a8ac14e0905}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+1214 \{
+1222   \textcolor{keywordtype}{string} query;
+1223   \textcolor{keywordtype}{string} termo;
+1224   \textcolor{keywordtype}{string} definicao;
+1225   \textcolor{keywordtype}{int} resultado;
+1226 
+1227   cout << \textcolor{stringliteral}{"Digite o termo no qual deseja aplicar um definicao: "};
+1228   cin >> termo;
+1229   cin.ignore();
+1230 
+1231   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+1232 
+1233   query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+1234   query += termo;
+1235   query += \textcolor{stringliteral}{"';"};
+1236 
+1237   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1238 
+1239   \textcolor{keywordflow}{if}(resultado == -1)
+1240   \{
+1241     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, termo nao consta em nosso banco de dados\(\backslash\)n"};
+1242   \}
+1243 
+1244   query = \textcolor{stringliteral}{"select count(*) from Definicao where termos = '"};
+1245   query += termo;
+1246   query += \textcolor{stringliteral}{"';"};
+1247 
+1248   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1249 
+1250   cout << \textcolor{stringliteral}{"Quantidade de termos retornados: "} << resultado << endl;
+1251 
+1252   \textcolor{keywordflow}{if}(resultado == 5)
+1253   \{
+1254     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)tErro, termo ja possui numero maximo de definicoes\(\backslash\)n\(\backslash\)n"};
+1255   \}
+1256 
+1257   cout << \textcolor{stringliteral}{"Digite a definicao para seu termo: "};
+1258   getline(cin, definicao);
+1259 
+1260   query = \textcolor{stringliteral}{"insert into Definicao(texto, termos) "};
+1261   query += \textcolor{stringliteral}{"values('"};
+1262   query += definicao;
+1263   query += \textcolor{stringliteral}{"','"};
+1264   query += termo;
+1265   query += \textcolor{stringliteral}{"');"};
+1266 
+1267   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1268 
+1269   cout << \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t ------------ Definicao aplicada com sucesso ------------------\(\backslash\)n\(\backslash\)n"};
+1270 
+1271   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1272 
+1273 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_ab378812b1e6b4d648fb8860cf8444210}\label{class_servico_usuarios_desenvolvedor_ab378812b1e6b4d648fb8860cf8444210}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!cria\+Termo@{cria\+Termo}}
+\index{cria\+Termo@{cria\+Termo}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{cria\+Termo()}{criaTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::cria\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Primeiramente o programa pede para o usuario informar em qual vocabulario deseja cadastrar seu termo. Informando esse detalhe, uma pesquisa e feita em busca desse vocabulario. Achando esse vocabulario, e verificado se nele ja existe um termo com o mesmo nome, e se caso nao existe so assim que o novo termo podera ser cadastrado.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a924f7dcd059d8ff265909d29457a961b}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+945 \{
+952   \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+953   \mbox{\hyperlink{class_data}{Data}} *data = \textcolor{keyword}{new} \mbox{\hyperlink{class_data}{Data}}();
+954   \mbox{\hyperlink{class_termo}{Termo}} *termo = \textcolor{keyword}{new} \mbox{\hyperlink{class_termo}{Termo}}();
+955 \textcolor{keywordtype}{int} resultado;
+956   \textcolor{keywordtype}{string} vocabulario;
+957   \textcolor{keywordtype}{string} entrada;
+958   \textcolor{keywordtype}{string} query;
+959 
+960   cout << \textcolor{stringliteral}{"Digite o nome do vocabulario no qual deseja que seu termo seja cadastrado: "};
+961   cin >> vocabulario;
+962   cin.ignore();
+963 
+964   query = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where nomeVocabulario = '"};
+965   query += vocabulario;
+966   query += \textcolor{stringliteral}{"';"};
+967 
+968 
+969   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+970   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+971 
+972   \textcolor{keywordflow}{if}(resultado == -1)
+973   \{
+974     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, Vocabulario Controlado nao encontrado\(\backslash\)n"};
+975   \}
+976 \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+977 \{
+978   \textcolor{keywordflow}{try}
+979   \{
+980     cout << \textcolor{stringliteral}{"Nome do termo: "};
+981     getline(cin, entrada);
+982     nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+983     termo->\mbox{\hyperlink{class_termo_a43246196cccd6fa074731e93ac15f07a}{setNome}}(*nome);
+984     query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+985     query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+986     query += \textcolor{stringliteral}{"';"};
+987     resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+988     \textcolor{keywordflow}{if}(resultado != -1)
+989     \{
+990       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, Termo ja consta em nosso banco de dados, tente outro Termo..\(\backslash\)n"};
+991     \}
+992 
+993     cout << \textcolor{stringliteral}{"Classe do Termo: "};
+994     getline(cin, entrada);
+995     termo->\mbox{\hyperlink{class_termo_a8c32e501b39e008ea369650e3eb196b1}{setClasseDeTermo}}(entrada);
+996 
+997 
+998     cout << \textcolor{stringliteral}{"Data da criacao: "};
+999     cin >> entrada;
+1000     data->\mbox{\hyperlink{class_data_a5245638838a033c98a8b760836dddb7d}{setData}}(entrada);
+1001     termo->\mbox{\hyperlink{class_termo_abf829a90ed067a580bb9d4c90db0f160}{setData}}(*data);
+1002 
+1003     \textcolor{keywordflow}{break};
+1004   \}
+1005   \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+1006   \{
+1007     cout << erro << endl;
+1008   \}
+1009 \}
+1010 
+1011 
+1012   query = \textcolor{stringliteral}{"insert into Termo (nome,classe,data,vocabulario)"};
+1013   query += \textcolor{stringliteral}{"values('"};
+1014   query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+1015   query += \textcolor{stringliteral}{"','"};
+1016   query += termo->\mbox{\hyperlink{class_termo_ae7e8fb47c8e03506b98a952fa25aa97b}{getClasseDeTermo}}();
+1017   query += \textcolor{stringliteral}{"','"};
+1018   query += data->\mbox{\hyperlink{class_data_afc7b15a5e81334858e48709b2f45cdc3}{getData}}();
+1019   query += \textcolor{stringliteral}{"','"};
+1020   query += vocabulario;
+1021   query += \textcolor{stringliteral}{"');"};
+1022 
+1023   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1024 
+1025   query = \textcolor{stringliteral}{"select count(*)from Termo where nome = '"};
+1026   query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+1027   query += \textcolor{stringliteral}{"';"};
+1028 
+1029   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1030 
+1031   \textcolor{keywordflow}{if}(resultado != -1)
+1032   \{
+1033     cout << \textcolor{stringliteral}{"Termo criado com sucesso...\(\backslash\)n\(\backslash\)n"};
+1034   \}
+1035   \textcolor{keywordflow}{else}
+1036   \{
+1037     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro na criacao do Termo\(\backslash\)n\(\backslash\)n"};
+1038   \}
+1039 
+1040   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1041 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a2a1063014d21344c6ec9a101741e5a4e}\label{class_servico_usuarios_desenvolvedor_a2a1063014d21344c6ec9a101741e5a4e}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!editar\+Definicao@{editar\+Definicao}}
+\index{editar\+Definicao@{editar\+Definicao}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{editar\+Definicao()}{editarDefinicao()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::editar\+Definicao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Para um definicao ser editada, primeiramente deve-\/se informar a qual termo pertence essa definicao logo apos validar esse termo, e necessario verificar se o mesmo apresenta alguma definicao. sendo apresentada alguma definicao, o usuario ira escolher a que deseja editar atraves do numero\+Def Colocado na definicao, para que possa alterar somente aquela que ele deseja.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_ae8e2d1d6954d5c4861d3cc40c525f725}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+1341  \{
+1348    \textcolor{keywordtype}{string} query;
+1349    \textcolor{keywordtype}{string} termo;
+1350    \textcolor{keywordtype}{string} definicao;
+1351    \textcolor{keywordtype}{string} numeroDef;
+1352    \textcolor{keywordtype}{int} resultado;
+1353 
+1354    cout << \textcolor{stringliteral}{"Digite o nome do termo no qual deseja edita-lo: "};
+1355    cin >> termo;
+1356    cin.ignore();
+1357 
+1358 
+1359 
+1360    \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+1361 
+1362    query = \textcolor{stringliteral}{"select count(*) from Definicao where termos = '"};
+1363    query += termo;
+1364    query += \textcolor{stringliteral}{"';"};
+1365 
+1366    resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1367 
+1368    \textcolor{keywordflow}{if}(resultado == -1)
+1369    \{
+1370      \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, termo nao encontrado\(\backslash\)n\(\backslash\)n"};
+1371    \}
+1372 
+1373    cout << \textcolor{stringliteral}{"\(\backslash\)t ---------- Apresentando definicoes do termo escolhido ----------\(\backslash\)n\(\backslash\)n"};
+1374 
+1375    query = \textcolor{stringliteral}{"select * from Definicao where termos = '"};
+1376    query += termo;
+1377    query += \textcolor{stringliteral}{"';"};
+1378 
+1379    resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1380 
+1381    cout << \textcolor{stringliteral}{"Digite o numero(numeroDef) apresentado na frente do termo no qual deseja editar: "};
+1382    cin >> numeroDef;
+1383    cin.ignore();
+1384 
+1385   cout << \textcolor{stringliteral}{"Digite a nova definicao para o termo escolhido: "};
+1386   getline(cin, definicao);
+1387 
+1388   query = \textcolor{stringliteral}{"update Definicao set texto = '"};
+1389   query += definicao;
+1390   query +=  \textcolor{stringliteral}{"' where termos = '"};
+1391   query += termo;
+1392   query += \textcolor{stringliteral}{"' and numeroDef = "};
+1393   query += numeroDef;
+1394   query += \textcolor{stringliteral}{";"};
+1395 
+1396      resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1397 
+1398      query = \textcolor{stringliteral}{"select * from Definicao where numeroDef = "};
+1399      query += numeroDef;
+1400      query += \textcolor{stringliteral}{" and termos = '"};
+1401      query += termo;
+1402      query += \textcolor{stringliteral}{"';"};
+1403 
+1404      resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1405 
+1406      cout << \textcolor{stringliteral}{"Termo Editado com sucesso\(\backslash\)n\(\backslash\)n"};
+1407 
+1408      \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1409  \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_afb392520e6ea1209abb42ad0327673e0}\label{class_servico_usuarios_desenvolvedor_afb392520e6ea1209abb42ad0327673e0}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!editar\+Termo@{editar\+Termo}}
+\index{editar\+Termo@{editar\+Termo}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{editar\+Termo()}{editarTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::editar\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Primeiramente o programa pede ao usuario o nome do termo que deseja editar e esse e procurado no DB. O termo achado, instancias de objetos serao criadas, no qual essas compoe as informacoes do termo escolhido. Todas as informacoes terao que ser atualizadas e essas mesmas serao verificadas antes de serem salvas no DB
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a60098c3dd81dfb83ea03f4b7ace785dc}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+1045 \{
+1052   \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+1053   \mbox{\hyperlink{class_data}{Data}} *data = \textcolor{keyword}{new} \mbox{\hyperlink{class_data}{Data}}();
+1054   \mbox{\hyperlink{class_termo}{Termo}} *termo = \textcolor{keyword}{new} \mbox{\hyperlink{class_termo}{Termo}}();
+1055   \textcolor{keywordtype}{string} termoEditar;
+1056   \textcolor{keywordtype}{string} entrada;
+1057   \textcolor{keywordtype}{string} query;
+1058   \textcolor{keywordtype}{string} vocabulario;
+1059   \textcolor{keywordtype}{int} resultado;
+1060 
+1061   cout << \textcolor{stringliteral}{"Digite o nome do termo que deseja editar: "};
+1062   getline(cin, termoEditar);
+1063   cin.ignore();
+1064 
+1065   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+1066 
+1067   query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+1068   query += termoEditar;
+1069   query += \textcolor{stringliteral}{"';"};
+1070 
+1071   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1072 
+1073   \textcolor{keywordflow}{if}(resultado == -1)
+1074   \{
+1075     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, termo nao encontrado\(\backslash\)n\(\backslash\)n"};
+1076   \}
+1077 
+1078   cout << \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t--------------- Digite os novos dados do termo -----------------\(\backslash\)n "};
+1079 
+1080   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+1081   \{
+1082     \textcolor{keywordflow}{try}
+1083     \{
+1084       cout << \textcolor{stringliteral}{"Nome do termo: "};
+1085       getline(cin, entrada);
+1086       cin.ignore();
+1087       nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+1088       termo->\mbox{\hyperlink{class_termo_a43246196cccd6fa074731e93ac15f07a}{setNome}}(*nome);
+1089       query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+1090       query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+1091       query += \textcolor{stringliteral}{"';"};
+1092       resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1093       \textcolor{keywordflow}{if}(resultado != -1)
+1094       \{
+1095         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, Termo ja consta em nosso banco de dados, tente outro Termo..\(\backslash\)n"};
+1096       \}
+1097 
+1098       cout << \textcolor{stringliteral}{"Classe do Termo: "};
+1099       getline(cin, entrada);
+1100       cin.ignore();
+1101       termo->\mbox{\hyperlink{class_termo_a8c32e501b39e008ea369650e3eb196b1}{setClasseDeTermo}}(entrada);
+1102 
+1103       cout << \textcolor{stringliteral}{"Data da criacao: "};
+1104       cin >> entrada;
+1105       cin.ignore();
+1106       data->\mbox{\hyperlink{class_data_a5245638838a033c98a8b760836dddb7d}{setData}}(entrada);
+1107       termo->\mbox{\hyperlink{class_termo_abf829a90ed067a580bb9d4c90db0f160}{setData}}(*data);
+1108 
+1109       cout << \textcolor{stringliteral}{"Vocabulario: "};
+1110       cin >> vocabulario;
+1111       query = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where nomeVocabulario = '"};
+1112       query += vocabulario;
+1113       query += \textcolor{stringliteral}{"';"};
+1114       resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1115       \textcolor{keywordflow}{if}(resultado == -1)
+1116       \{
+1117         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, Vocabulario nao encontrado, tente outro vocabulario....\(\backslash\)n"};
+1118       \}
+1119 
+1120       \textcolor{keywordflow}{break};
+1121     \}
+1122     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+1123     \{
+1124       cout << erro << endl;
+1125     \}
+1126   \}
+1127 
+1128     query = \textcolor{stringliteral}{"update Termo set nome = '"};
+1129     query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+1130     query += \textcolor{stringliteral}{"',classe = '"};
+1131     query += termo->\mbox{\hyperlink{class_termo_ae7e8fb47c8e03506b98a952fa25aa97b}{getClasseDeTermo}}();
+1132     query += \textcolor{stringliteral}{"',data = '"};
+1133     query += data->\mbox{\hyperlink{class_data_afc7b15a5e81334858e48709b2f45cdc3}{getData}}();
+1134     query += \textcolor{stringliteral}{"', vocabulario = '"};
+1135     query += vocabulario;
+1136     query += \textcolor{stringliteral}{"' where nome = '"};
+1137     query += termoEditar;
+1138     query += \textcolor{stringliteral}{"';"};
+1139 
+1140     resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1141 
+1142     query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+1143     query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+1144     query += \textcolor{stringliteral}{"';"};
+1145 
+1146     resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1147 
+1148     \textcolor{keywordflow}{if}(resultado != -1)
+1149     \{
+1150       cout << \textcolor{stringliteral}{"Comando executado com sucesso....\(\backslash\)n\(\backslash\)n"};
+1151     \}
+1152     \textcolor{keywordflow}{else}
+1153     \{
+1154       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro ao executar comando\(\backslash\)n\(\backslash\)n"};
+1155     \}
+1156 
+1157     \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1158 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a422f9a3ee77a0d560858c9f7c266b9ee}\label{class_servico_usuarios_desenvolvedor_a422f9a3ee77a0d560858c9f7c266b9ee}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!excluir\+Definicao@{excluir\+Definicao}}
+\index{excluir\+Definicao@{excluir\+Definicao}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{excluir\+Definicao()}{excluirDefinicao()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::excluir\+Definicao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Para excluir a definicao de um termo, primeiro deve-\/se informar a qual termo ela pertence informando e validando essa informacao, o programa ira apresentar a Quantidade de definicoes existentes para o termo escolhido e junto com elas, um numero chamado de numero\+Def, utilizado para poder diferencia-\/las na hora da exclusao. O usuario ira selecionar aquela de deseja exluir atraves desse numero\+Def, executando por fim a query de exclusao.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a518fe0443e450a73a7274b8dbef74a71}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+1277 \{
+1285   \textcolor{keywordtype}{string} query;
+1286   \textcolor{keywordtype}{int} resultado;
+1287   \textcolor{keywordtype}{char} numeroDef;
+1288   \textcolor{keywordtype}{string} termo;
+1289 
+1290   cout << \textcolor{stringliteral}{"Digite o termo no qual deseja excluir sua definicao: "};
+1291   cin >> termo;
+1292 
+1293   query = \textcolor{stringliteral}{"select count(*) from Definicao where termos = '"};
+1294   query += termo;
+1295   query += \textcolor{stringliteral}{"';"};
+1296 
+1297   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+1298 
+1299   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1300 
+1301   \textcolor{keywordflow}{if}(resultado == -1)
+1302   \{
+1303     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, termo nao existe em nosso banco de dados de definicoes\(\backslash\)n\(\backslash\)n"};
+1304   \}
+1305 
+1306   cout << \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t----------- Definicoes do Termo "} << termo << \textcolor{stringliteral}{"-----------\(\backslash\)n\(\backslash\)n"};
+1307 
+1308   query = \textcolor{stringliteral}{"select * from Definicao where termos = '"};
+1309   query += termo;
+1310   query += \textcolor{stringliteral}{"';"};
+1311 
+1312   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1313 
+1314   cout << \textcolor{stringliteral}{"Digite o numero que representa a definicao do termo que deseja excluir: "};
+1315   cin >> numeroDef;
+1316 
+1317   query = \textcolor{stringliteral}{"delete from Definicao where numeroDef = "};
+1318   query += numeroDef;
+1319   query += \textcolor{stringliteral}{" and termos = '"};
+1320   query += termo;
+1321   query += \textcolor{stringliteral}{"';"};
+1322 
+1323   cout << \textcolor{stringliteral}{"QUERYYY: "} << query << endl;
+1324 
+1325   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1326 
+1327   cout << \textcolor{stringliteral}{"resultado exclusao\(\backslash\)n\(\backslash\)n"};
+1328 
+1329   query = \textcolor{stringliteral}{"select * from Definicao where termos = '"};
+1330   query += termo;
+1331   query += \textcolor{stringliteral}{"';"};
+1332 
+1333   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1334 
+1335   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1336 
+1337 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a20712917886eaf28a2a9b308d14d7b04}\label{class_servico_usuarios_desenvolvedor_a20712917886eaf28a2a9b308d14d7b04}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!excluir\+Termo@{excluir\+Termo}}
+\index{excluir\+Termo@{excluir\+Termo}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{excluir\+Termo()}{excluirTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::excluir\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Primeiramente o nome do termo e pedido, e com isso comeca a procura dentro do DB. Achado o termo uma query sera montada e executada para que esse termo seja excluido do Banco de dados
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a95825708aeed4c1f6a5829ad4bd29673}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+1162 \{
+1167   \textcolor{keywordtype}{string} query;
+1168   \textcolor{keywordtype}{string} termo;
+1169   \textcolor{keywordtype}{int} resultado;
+1170 
+1171   cout << \textcolor{stringliteral}{"Digite o nome do termo que deseja excluir: "};
+1172   cin >> termo;
+1173 
+1174   query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+1175   query += termo;
+1176   query += \textcolor{stringliteral}{"';"};
+1177 
+1178   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+1179 
+1180   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1181 
+1182   \textcolor{keywordflow}{if}(resultado == -1)
+1183   \{
+1184     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, Termo nao encontrado\(\backslash\)n\(\backslash\)n"};
+1185   \}
+1186 
+1187   query = \textcolor{stringliteral}{"delete from Termo where nome = '"};
+1188   query += termo;
+1189   query += \textcolor{stringliteral}{"';"};
+1190 
+1191   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1192 
+1193   query = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+1194   query += termo;
+1195   query += \textcolor{stringliteral}{"';"};
+1196 
+1197   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1198 
+1199   \textcolor{keywordflow}{if}(resultado != -1)
+1200   \{
+1201     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro na exclusao\(\backslash\)n\(\backslash\)n"};
+1202   \}
+1203   \textcolor{keywordflow}{else}
+1204   \{
+1205     cout << \textcolor{stringliteral}{"Exclusao de termo realizada com sucesso\(\backslash\)n\(\backslash\)n"};
+1206   \}
+1207 
+1208   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1209 
+1210 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_ad536645995beed517216ed96206ae018}\label{class_servico_usuarios_desenvolvedor_ad536645995beed517216ed96206ae018}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!excluir\+Usuario\+Desenvolvedor@{excluir\+Usuario\+Desenvolvedor}}
+\index{excluir\+Usuario\+Desenvolvedor@{excluir\+Usuario\+Desenvolvedor}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{excluir\+Usuario\+Desenvolvedor()}{excluirUsuarioDesenvolvedor()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::excluir\+Usuario\+Desenvolvedor (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Atraves do parametro recebido pela funcao, uma query de delete e montada usando como criterio o email passado no parametro para poder assim excluir a conta do desenvolvedor logado
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_aa106326b5823377bd842b7448e0b4ee3}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+631 \{
+636   \textcolor{keywordtype}{int} consulta,recebe;
+637   queryExclui = \textcolor{stringliteral}{"delete from Desenvolvedores where email='"};
+638   queryExclui += email;
+639   queryExclui +=\textcolor{stringliteral}{"';"};
+640 
+641   \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a552cca1c14e7c9dd87600062d524ffa8}{consultarCadastroDesenvolvedor}}(email);
+642 
+643   \textcolor{keywordflow}{if}(consulta == 0)
+644   \{
+645     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, cadastro nao existe em nosso banco de dados\(\backslash\)n"};
+646   \}
+647 
+648   cout << queryExclui << endl;
+649 
+650   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+651   recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryExclui);
+652   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+653 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a5748ea9d0e56ffcad31ad486ecb8b79f}\label{class_servico_usuarios_desenvolvedor_a5748ea9d0e56ffcad31ad486ecb8b79f}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!list\+Dados\+Vocabulario@{list\+Dados\+Vocabulario}}
+\index{list\+Dados\+Vocabulario@{list\+Dados\+Vocabulario}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{list\+Dados\+Vocabulario()}{listDadosVocabulario()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::list\+Dados\+Vocabulario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Primeiramente o nome do vocabulario controlado e pedido, e assim que colocado, uma pesquisa sera feita no DB em busca desse nome. Se vocabulario realmente existir, uma query sera criada para apresentar os dados desse vocabulario, se nao, a funcao caira no catch
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_a8fb9d062db341aa57ee44ff7b5049652}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+743 \{
+749   \textcolor{keywordtype}{string} nomeVocabulario;
+750   \textcolor{keywordtype}{string} queryVerifica;
+751   \textcolor{keywordtype}{int} recebe;
+752 
+753   cout << \textcolor{stringliteral}{"Digite o nome do vocabulario desejado: "};
+754   cin >> nomeVocabulario;
+755 
+756 
+757   queryVerifica = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where nomeVocabulario = '"};
+758   queryVerifica += nomeVocabulario;
+759   queryVerifica += \textcolor{stringliteral}{"';"};
+760 
+761   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+762   recebe = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryVerifica);
+763 
+764   \textcolor{keywordflow}{if}(recebe > 0)
+765       \{
+766         queryVerifica = \textcolor{stringliteral}{"select * from Vocabulario\_Controlado where nomeVocabulario = '"};
+767         queryVerifica += nomeVocabulario;
+768         queryVerifica += \textcolor{stringliteral}{"';"};
+769         recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryVerifica);
+770       \}
+771   \textcolor{keywordflow}{else}
+772       \{
+773         cout << \textcolor{stringliteral}{"\(\backslash\)nVocabulario Controlado nao consta em nosso banco de dados\(\backslash\)n"} << endl;
+774       \}
+775 
+776       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+777 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_ad4f1b230cdb25ff8a2b8ae0010e99382}\label{class_servico_usuarios_desenvolvedor_ad4f1b230cdb25ff8a2b8ae0010e99382}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!list\+Nome\+Vocabularios@{list\+Nome\+Vocabularios}}
+\index{list\+Nome\+Vocabularios@{list\+Nome\+Vocabularios}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{list\+Nome\+Vocabularios()}{listNomeVocabularios()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::list\+Nome\+Vocabularios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Lista todos os nomes dos vocabularios controlados ja cadastrados atraves da execucao de uma query
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_desenvolvedor_abb3f10c499ac67d02987f0860150393d}{Crlt\+Servico\+Usuario\+Desenvolvedor}}.
+
+
+\begin{DoxyCode}
+726 \{
+730   \textcolor{keywordtype}{string} queryList;
+731   \textcolor{keywordtype}{int} recebe;
+732   queryList = \textcolor{stringliteral}{"select nomeVocabulario from Vocabulario\_Controlado;"};
+733   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+734   recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryList);
+735   \textcolor{keywordflow}{if}(recebe == 0)
+736   \{
+737     cout << \textcolor{stringliteral}{"Erro ao executar query\(\backslash\)n"};
+738   \}
+739   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+740 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_desenvolvedor_a0214220e4cbac89da4ca22b10ac57c4e}\label{class_servico_usuarios_desenvolvedor_a0214220e4cbac89da4ca22b10ac57c4e}} 
+\index{Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}!opcao\+Escolhida\+Desenvolvedor@{opcao\+Escolhida\+Desenvolvedor}}
+\index{opcao\+Escolhida\+Desenvolvedor@{opcao\+Escolhida\+Desenvolvedor}!Servico\+Usuarios\+Desenvolvedor@{Servico\+Usuarios\+Desenvolvedor}}
+\subsubsection{\texorpdfstring{opcao\+Escolhida\+Desenvolvedor()}{opcaoEscolhidaDesenvolvedor()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Desenvolvedor\+::opcao\+Escolhida\+Desenvolvedor (\begin{DoxyParamCaption}\item[{int}]{opcao,  }\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+2517 \{
+2518   \textcolor{keywordflow}{if}(opcao == 1)
+2519   \{
+2520     \textcolor{keywordtype}{int} recebe;
+2521       recebe = \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a552cca1c14e7c9dd87600062d524ffa8}{consultarCadastroDesenvolvedor}}(email);
+2522   \}
+2523 
+2524   \textcolor{keywordflow}{if}(opcao == 2)
+2525   \{
+2526     \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a2dc1811265f101d3ce14150594b25e88}{atualizarUsuarioDesenvolvedor}}(email);
+2527   \}
+2528 
+2529   \textcolor{keywordflow}{if}(opcao == 3)
+2530   \{
+2531     \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_ad536645995beed517216ed96206ae018}{excluirUsuarioDesenvolvedor}}(email);
+2532   \}
+2533 
+2534   \textcolor{keywordflow}{if}(opcao == 4)
+2535   \{
+2536     \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_ad4f1b230cdb25ff8a2b8ae0010e99382}{listNomeVocabularios}}();
+2537   \}
+2538 
+2539   \textcolor{keywordflow}{if}(opcao == 5)
+2540   \{
+2541     \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a5748ea9d0e56ffcad31ad486ecb8b79f}{listDadosVocabulario}}();
+2542   \}
+2543 
+2544   \textcolor{keywordflow}{if}(opcao == 6)
+2545   \{
+2546     \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a9c4a519147798c77d3fb6406f8078b9f}{consultarTermo}}();
+2547   \}
+2548 
+2549   \textcolor{keywordflow}{if}(opcao == 7)
+2550   \{
+2551     \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_aa125405f5b747e4e7bbacebd28934e72}{consultarDefinicaoTermo}}();
+2552   \}
+2553 
+2554   \textcolor{keywordflow}{if}(opcao == 8)
+2555   \{
+2556     \textcolor{keywordflow}{try}
+2557     \{
+2558       \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a1708877c02739b2447862b2e2349267d}{cadastraDesenvolvedorVocControlado}}(email);
+2559     \}
+2560     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2561     \{
+2562       cout << erro << endl;
+2563     \}
+2564   \}
+2565 
+2566   \textcolor{keywordflow}{if}(opcao == 9)
+2567   \{
+2568     \textcolor{keywordflow}{try}
+2569     \{
+2570       \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_ab378812b1e6b4d648fb8860cf8444210}{criaTermo}}();
+2571     \}
+2572     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2573     \{
+2574       cout << erro << endl;
+2575     \}
+2576   \}
+2577 
+2578   \textcolor{keywordflow}{if}(opcao == 10)
+2579   \{
+2580     \textcolor{keywordflow}{try}
+2581     \{
+2582       \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_afb392520e6ea1209abb42ad0327673e0}{editarTermo}}();
+2583     \}
+2584     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2585     \{
+2586       cout << erro << endl;
+2587     \}
+2588   \}
+2589 
+2590   \textcolor{keywordflow}{if}(opcao == 11)
+2591   \{
+2592     \textcolor{keywordflow}{try}
+2593     \{
+2594       \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a20712917886eaf28a2a9b308d14d7b04}{excluirTermo}}();
+2595     \}
+2596     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2597     \{
+2598       cout << erro << endl;
+2599     \}
+2600   \}
+2601 
+2602 
+2603   \textcolor{keywordflow}{if}(opcao == 12)
+2604   \{
+2605     \textcolor{keywordflow}{try}
+2606     \{
+2607       \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a851c2a4b054df2a14f66c451f4656d52}{criaDefinicao}}();
+2608     \}
+2609     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2610     \{
+2611       cout << erro << endl;
+2612     \}
+2613   \}
+2614 
+2615 
+2616   \textcolor{keywordflow}{if}(opcao == 13)
+2617   \{
+2618     \textcolor{keywordflow}{try}
+2619     \{
+2620       \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a422f9a3ee77a0d560858c9f7c266b9ee}{excluirDefinicao}}();
+2621     \}
+2622     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2623     \{
+2624       cout << erro << endl;
+2625     \}
+2626   \}
+2627 
+2628 
+2629 
+2630     \textcolor{keywordflow}{if}(opcao == 14)
+2631     \{
+2632       \textcolor{keywordflow}{try}
+2633       \{
+2634         \mbox{\hyperlink{class_servico_usuarios_desenvolvedor_a2a1063014d21344c6ec9a101741e5a4e}{editarDefinicao}}();
+2635       \}
+2636       \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+2637       \{
+2638         cout << erro << endl;
+2639       \}
+2640     \}
+2641 
+2642 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{servico_8hpp}{servico.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{servico_8cpp}{servico.\+cpp}}\end{DoxyCompactItemize}

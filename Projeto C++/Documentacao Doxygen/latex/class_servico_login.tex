@@ -1,0 +1,436 @@
+\hypertarget{class_servico_login}{}\section{Referência da Classe Servico\+Login}
+\label{class_servico_login}\index{Servico\+Login@{Servico\+Login}}
+
+
+{\ttfamily \#include $<$servico.\+hpp$>$}
+
+Diagrama de hierarquia para Servico\+Login\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_servico_login}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_servico_login_a0dd44bd72da82fa932e4929edbefb6ea}{login}} (int opcao, string email, string senha)
+\item 
+void \mbox{\hyperlink{class_servico_login_ae6786007e98ac8288dc53d025d5f5bcd}{criar\+Usuario\+Leitor}} ()
+\item 
+void \mbox{\hyperlink{class_servico_login_aff5fc69ce9c3fa82c6c575f025ac2a34}{criar\+Usuario\+Desenvolvedor}} ()
+\item 
+void \mbox{\hyperlink{class_servico_login_a2f7e5d945f4ce6b06c8ce093ed3755e7}{criar\+Usuario\+Administrador}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_servico_login_a2f7e5d945f4ce6b06c8ce093ed3755e7}\label{class_servico_login_a2f7e5d945f4ce6b06c8ce093ed3755e7}} 
+\index{Servico\+Login@{Servico\+Login}!criar\+Usuario\+Administrador@{criar\+Usuario\+Administrador}}
+\index{criar\+Usuario\+Administrador@{criar\+Usuario\+Administrador}!Servico\+Login@{Servico\+Login}}
+\subsubsection{\texorpdfstring{criar\+Usuario\+Administrador()}{criarUsuarioAdministrador()}}
+{\footnotesize\ttfamily void Servico\+Login\+::criar\+Usuario\+Administrador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implementa \mbox{\hyperlink{class_crlt_servico_login_a49825818fa1e6e24495d6cb9e4236907}{Crlt\+Servico\+Login}}.
+
+
+\begin{DoxyCode}
+1425 \{
+1426   \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+1427   \mbox{\hyperlink{class_sobrenome}{Sobrenome}} *sobrenome = \textcolor{keyword}{new} \mbox{\hyperlink{class_sobrenome}{Sobrenome}}();
+1428   \mbox{\hyperlink{class_telefone}{Telefone}} *telefone = \textcolor{keyword}{new} \mbox{\hyperlink{class_telefone}{Telefone}}();
+1429   \mbox{\hyperlink{class_endereco}{Endereco}} *endereco = \textcolor{keyword}{new} \mbox{\hyperlink{class_endereco}{Endereco}}();
+1430   \mbox{\hyperlink{class_data}{Data}} *data = \textcolor{keyword}{new} \mbox{\hyperlink{class_data}{Data}}();
+1431   \mbox{\hyperlink{class_email}{Email}} *email = \textcolor{keyword}{new} \mbox{\hyperlink{class_email}{Email}}();
+1432   \mbox{\hyperlink{class_senha}{Senha}} *senha = \textcolor{keyword}{new} \mbox{\hyperlink{class_senha}{Senha}}();
+1433   \textcolor{keywordtype}{string} query;
+1434   \textcolor{keywordtype}{string} entrada;
+1435   \textcolor{keywordtype}{int} resultado;
+1436 
+1437   cin.ignore();
+1438   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+1439   \{
+1440     \textcolor{keywordflow}{try}
+1441     \{
+1442       cout << \textcolor{stringliteral}{"Nome: "};
+1443       getline(cin, entrada);
+1444       nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+1445 
+1446       cout << \textcolor{stringliteral}{"Sobrenome: "};
+1447       getline(cin, entrada);
+1448       sobrenome->\mbox{\hyperlink{class_sobrenome_a9dc2277e3600656838e47c86dfddd23a}{setSobrenome}}(entrada);
+1449 
+1450       cout << \textcolor{stringliteral}{"Data de nascimento: "};
+1451       getline(cin, entrada);
+1452       data->\mbox{\hyperlink{class_data_a5245638838a033c98a8b760836dddb7d}{setData}}(entrada);
+1453 
+1454       cout << \textcolor{stringliteral}{"Telefone: "};
+1455       getline(cin, entrada);
+1456       telefone->\mbox{\hyperlink{class_telefone_ad85910fc35320e4a8e7ede8d40bbc454}{setTelefone}}(entrada);
+1457 
+1458       cout << \textcolor{stringliteral}{"Endereco: "};
+1459       getline(cin, entrada);
+1460       endereco->\mbox{\hyperlink{class_endereco_a36e8c19c5e97f321d77aece5b3e53239}{setEndereco}}(entrada);
+1461 
+1462       cout << \textcolor{stringliteral}{"Email: "};
+1463       getline(cin, entrada);
+1464       email->\mbox{\hyperlink{class_email_a2614b3a19d961411d1bece9c1bdf616f}{setEmail}}(entrada);
+1465 
+1466       cout << \textcolor{stringliteral}{"Senha: "};
+1467       getline(cin, entrada);
+1468       senha->\mbox{\hyperlink{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}{setSenha}}(entrada,nome);
+1469 
+1470       \textcolor{keywordflow}{break};
+1471 
+1472     \}
+1473     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+1474     \{
+1475       cout << erro << endl;
+1476     \}
+1477   \}
+1478 
+1479   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+1480 
+1481   query = \textcolor{stringliteral}{"insert into Administradores(nome,sobrenome,telefone,endereco,data,email,senha) "};
+1482   query += \textcolor{stringliteral}{"values('"};
+1483   query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+1484   query += \textcolor{stringliteral}{"','"};
+1485   query += sobrenome->\mbox{\hyperlink{class_sobrenome_a954491366ce07f6715f32a97d67edf04}{getSobrenome}}();
+1486   query += \textcolor{stringliteral}{"','"};
+1487   query += telefone->\mbox{\hyperlink{class_telefone_a3e7acb7a3b658ef9e5d73b7e1d2948e7}{getTelefone}}();
+1488   query += \textcolor{stringliteral}{"','"};
+1489   query += endereco->\mbox{\hyperlink{class_endereco_aa1ccbda52f9559a68379c54e7e914d19}{getEndereco}}();
+1490   query += \textcolor{stringliteral}{"','"};
+1491   query += data->\mbox{\hyperlink{class_data_afc7b15a5e81334858e48709b2f45cdc3}{getData}}();
+1492   query += \textcolor{stringliteral}{"','"};
+1493   query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+1494   query += \textcolor{stringliteral}{"','"};
+1495   query += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+1496   query += \textcolor{stringliteral}{"');"};
+1497 
+1498   resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+1499 
+1500   query = \textcolor{stringliteral}{"select count(*) from Administradores where email = '"};
+1501   query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+1502   query += \textcolor{stringliteral}{"' and senha = '"};
+1503   query += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+1504   query += \textcolor{stringliteral}{"';"};
+1505 
+1506   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+1507 
+1508   \textcolor{keywordflow}{if}(resultado != -1)
+1509   \{
+1510     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)t---------------- Cadastrado realizado com sucesso ----------------\(\backslash\)n"};
+1511   \}
+1512   \textcolor{keywordflow}{else}
+1513   \{
+1514     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro na realizacao do cadastro...\(\backslash\)n\(\backslash\)n"};
+1515   \}
+1516 
+1517 \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+1518 
+1519 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_login_aff5fc69ce9c3fa82c6c575f025ac2a34}\label{class_servico_login_aff5fc69ce9c3fa82c6c575f025ac2a34}} 
+\index{Servico\+Login@{Servico\+Login}!criar\+Usuario\+Desenvolvedor@{criar\+Usuario\+Desenvolvedor}}
+\index{criar\+Usuario\+Desenvolvedor@{criar\+Usuario\+Desenvolvedor}!Servico\+Login@{Servico\+Login}}
+\subsubsection{\texorpdfstring{criar\+Usuario\+Desenvolvedor()}{criarUsuarioDesenvolvedor()}}
+{\footnotesize\ttfamily void Servico\+Login\+::criar\+Usuario\+Desenvolvedor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Funcao responsavel pelo cadastramento de novos desenvolvedores no sistema. Primeiramente sao criados instancias de objetos no qual esses objetos irao compor o cadastro do desenvolvedor. Apos isso, e pedido para que o usuario digite as informacoes pedidas, e assim as mesmas passaram por um processo de validacao feito o processo de validacao, essas informacoes finalmente sera gravadas no DB de desenvolvedores, e apos essa gravacao uma query e executada em busca do novo membro, retornando assim o valor da pesquisa, chegando a conclusao se o desenvolvedor foi criado com sucesso ou nao.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_login_aab452ac1f3d0fd6d2f6989017026b188}{Crlt\+Servico\+Login}}.
+
+
+\begin{DoxyCode}
+539 \{
+548     \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+549     \mbox{\hyperlink{class_sobrenome}{Sobrenome}} *sobrenome = \textcolor{keyword}{new} \mbox{\hyperlink{class_sobrenome}{Sobrenome}}();
+550     \mbox{\hyperlink{class_data}{Data}} *data = \textcolor{keyword}{new} \mbox{\hyperlink{class_data}{Data}}();
+551     \mbox{\hyperlink{class_email}{Email}} *email = \textcolor{keyword}{new} \mbox{\hyperlink{class_email}{Email}}();
+552     \mbox{\hyperlink{class_senha}{Senha}} *senha = \textcolor{keyword}{new} \mbox{\hyperlink{class_senha}{Senha}}();
+553     \mbox{\hyperlink{class_desenvolvedor}{Desenvolvedor}} *desenvolvedor = \textcolor{keyword}{new} \mbox{\hyperlink{class_desenvolvedor}{Desenvolvedor}}();
+554     \textcolor{keywordtype}{string} entrada;
+555     \textcolor{keywordtype}{string} query;
+556     \textcolor{keywordtype}{int} resultado;
+557     cin.ignore();
+558     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+559     \{
+560       \textcolor{keywordflow}{try}
+561       \{
+562         cout << \textcolor{stringliteral}{"Nome: "};
+563         getline(cin, entrada);
+564         nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+565 
+566         cout << \textcolor{stringliteral}{"Sobrenome: "};
+567         getline(cin, entrada);
+568         sobrenome->\mbox{\hyperlink{class_sobrenome_a9dc2277e3600656838e47c86dfddd23a}{setSobrenome}}(entrada);
+569 
+570         cout << \textcolor{stringliteral}{"Data de Nascimento: "};
+571         getline(cin, entrada);
+572         data->\mbox{\hyperlink{class_data_a5245638838a033c98a8b760836dddb7d}{setData}}(entrada);
+573 
+574         cout << \textcolor{stringliteral}{"Email: "};
+575         getline(cin, entrada);
+576         email->\mbox{\hyperlink{class_email_a2614b3a19d961411d1bece9c1bdf616f}{setEmail}}(entrada);
+577 
+578         cout << \textcolor{stringliteral}{"Senha: "};
+579         getline(cin, entrada);
+580         senha->\mbox{\hyperlink{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}{setSenha}}(entrada,nome);
+581 
+582         \textcolor{keywordflow}{break};
+583 
+584       \}
+585       \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+586       \{
+587         cout << erro << endl;
+588       \}
+589     \}
+590 
+591     \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+592 
+593     query = \textcolor{stringliteral}{"insert into Desenvolvedores(nome,sobrenome,data,email,senha) "};
+594     query += \textcolor{stringliteral}{"values('"};
+595     query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+596     query += \textcolor{stringliteral}{"','"};
+597     query += sobrenome->\mbox{\hyperlink{class_sobrenome_a954491366ce07f6715f32a97d67edf04}{getSobrenome}}();
+598     query += \textcolor{stringliteral}{"','"};
+599     query += data->\mbox{\hyperlink{class_data_afc7b15a5e81334858e48709b2f45cdc3}{getData}}();
+600     query += \textcolor{stringliteral}{"','"};
+601     query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+602     query += \textcolor{stringliteral}{"','"};
+603     query += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+604     query += \textcolor{stringliteral}{"');"};
+605 
+606 
+607     resultado = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+608 
+609     query = \textcolor{stringliteral}{"select count(*) from Desenvolvedores where email = '"};
+610     query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+611     query += \textcolor{stringliteral}{"' and senha = '"};
+612     query += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+613     query += \textcolor{stringliteral}{"';"};
+614 
+615     resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+616 
+617     \textcolor{keywordflow}{if}(resultado != -1)
+618     \{
+619       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)t------------ Usuario desenvolvedor criado com sucesso ------------\(\backslash\)n"};
+620     \}
+621     \textcolor{keywordflow}{else}
+622     \{
+623       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro ao criar usuario...\(\backslash\)n\(\backslash\)n"};
+624     \}
+625 
+626     \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+627 
+628 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_login_ae6786007e98ac8288dc53d025d5f5bcd}\label{class_servico_login_ae6786007e98ac8288dc53d025d5f5bcd}} 
+\index{Servico\+Login@{Servico\+Login}!criar\+Usuario\+Leitor@{criar\+Usuario\+Leitor}}
+\index{criar\+Usuario\+Leitor@{criar\+Usuario\+Leitor}!Servico\+Login@{Servico\+Login}}
+\subsubsection{\texorpdfstring{criar\+Usuario\+Leitor()}{criarUsuarioLeitor()}}
+{\footnotesize\ttfamily void Servico\+Login\+::criar\+Usuario\+Leitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Funcao para criar um novo usuario do tipo leitor. Primeiramente sao criados objetos que fazem parte das informacoes que um leitor precisa disponibilizar para poder se cadastrar no sistema, que sao eles\+: nome,sobrenome,email, senha. Cada uma dessas informacoes sera testada e aprovada pelo sistema antes de serem jogadas dentro do banco de Dados Feita a conexao com o DB, as informacoes sao pedidas e as validacoes devidamente realizadas Feito isso uma query e montada para jogar as informacoes na tabela correspondente tipo de Cadastro que foi realizado, nesse caso, do tipo leitor. Apos isso uma nova query e criada pesquisando pelo email criado e se retornar 1, significa que o usuario foi criado com sucesso.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_login_ab5fdf7e56eb8edd6113386011f161085}{Crlt\+Servico\+Login}}.
+
+
+\begin{DoxyCode}
+138 \{
+149   \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+150   \mbox{\hyperlink{class_sobrenome}{Sobrenome}} *sobrenome = \textcolor{keyword}{new} \mbox{\hyperlink{class_sobrenome}{Sobrenome}}();
+151   \mbox{\hyperlink{class_email}{Email}} *email = \textcolor{keyword}{new} \mbox{\hyperlink{class_email}{Email}}();
+152   \mbox{\hyperlink{class_senha}{Senha}} *senha = \textcolor{keyword}{new} \mbox{\hyperlink{class_senha}{Senha}}();
+153   \textcolor{keywordtype}{int} consulta,recebe;
+154   \textcolor{keywordtype}{string} query;
+155   \textcolor{keywordtype}{int} resultado;
+156   \textcolor{keywordtype}{string} entrada;
+157 
+158   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+159   cin.ignore();
+160   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+161   \{
+162     \textcolor{keywordflow}{try}
+163     \{
+164       cout << \textcolor{stringliteral}{"Nome: "};
+165       getline(cin, entrada);
+166       nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+167 
+168       cout << \textcolor{stringliteral}{"Sobrenome: "};
+169       getline(cin, entrada);
+170       sobrenome->\mbox{\hyperlink{class_sobrenome_a9dc2277e3600656838e47c86dfddd23a}{setSobrenome}}(entrada);
+171 
+172       cout << \textcolor{stringliteral}{"Email: "};
+173       getline(cin, entrada);
+174       email->\mbox{\hyperlink{class_email_a2614b3a19d961411d1bece9c1bdf616f}{setEmail}}(entrada);
+175       query = \textcolor{stringliteral}{"select count(*) from Leitores where email = '"};
+176       query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+177       query += \textcolor{stringliteral}{"';"};
+178       resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+179       \textcolor{keywordflow}{if}(resultado != -1)
+180       \{
+181         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, email ja possui cadastro\(\backslash\)n\(\backslash\)n"};
+182       \}
+183 
+184       cout << \textcolor{stringliteral}{"Senha: "};
+185       getline(cin, entrada);
+186       senha->\mbox{\hyperlink{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}{setSenha}}(entrada,nome);
+187 
+188       \textcolor{keywordflow}{break};
+189 
+190     \}
+191     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+192     \{
+193       cout << erro << endl;
+194     \}
+195   \}
+196 
+197   query = \textcolor{stringliteral}{"INSERT INTO Leitores (nome,sobrenome,email,senha) "};
+198   query += \textcolor{stringliteral}{"VALUES ('"};
+199   query += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+200   query += \textcolor{stringliteral}{"','"};
+201   query += sobrenome->\mbox{\hyperlink{class_sobrenome_a954491366ce07f6715f32a97d67edf04}{getSobrenome}}();
+202   query += \textcolor{stringliteral}{"','"};
+203   query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+204   query += \textcolor{stringliteral}{"','"};
+205   query += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+206   query += \textcolor{stringliteral}{"');"};
+207 
+208   recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(query);
+209 
+210   query = \textcolor{stringliteral}{"select count(*) from Leitores where email = '"};
+211   query += email->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+212   query += \textcolor{stringliteral}{"';"};
+213 
+214   resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+215 
+216   \textcolor{keywordflow}{if}(resultado == -1)
+217   \{
+218     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro ao criar usuario....\(\backslash\)n\(\backslash\)n"};
+219   \}
+220   \textcolor{keywordflow}{else}
+221   \{
+222     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"\(\backslash\)t------------ Usuario Leitor criado com sucesso ------------\(\backslash\)n"};
+223   \}
+224 
+225   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+226 
+227 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_login_a0dd44bd72da82fa932e4929edbefb6ea}\label{class_servico_login_a0dd44bd72da82fa932e4929edbefb6ea}} 
+\index{Servico\+Login@{Servico\+Login}!login@{login}}
+\index{login@{login}!Servico\+Login@{Servico\+Login}}
+\subsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily string Servico\+Login\+::login (\begin{DoxyParamCaption}\item[{int}]{opcao,  }\item[{string}]{email,  }\item[{string}]{senha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Implementacao da funcao login na qual recebe dois parametros, o primeiro e a opcao feita pelo usuario, podendo ser os numeros de um ate o quatro, cada um com sua respectiva funcao, os outros dois parametros sao o e-\/mail e senha que sao utilizados quando o usuario loga como leitor, desenvolvedor ou administrador, porem quando o usuario quer criar uma conta, esses parametros sao meramente ilustrativos
+
+Implementa \mbox{\hyperlink{class_crlt_servico_login_a3a863ed6ef16279d0cdc1d33fd8f5edd}{Crlt\+Servico\+Login}}.
+
+
+\begin{DoxyCode}
+4 \{
+12   \textcolor{keywordtype}{int} resultado;
+13   \textcolor{keywordtype}{string} query;
+14   \textcolor{keywordtype}{int} escolhaConta;
+15   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+16 
+17   \textcolor{keywordflow}{if}(opcao == 1)
+18   \{
+19     query = \textcolor{stringliteral}{"select count(*) from Leitores where email='"};
+20     query += email;
+21     query += \textcolor{stringliteral}{"' and senha ='"};
+22     query += senha;
+23     query += \textcolor{stringliteral}{"';"};
+24     resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+25 
+26     \textcolor{keywordflow}{if}(resultado != -1)
+27     \{
+28       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+29       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"leitor"};
+30     \}
+31   \}
+32 
+33   \textcolor{keywordflow}{if}(opcao == 2)
+34   \{
+35     query = \textcolor{stringliteral}{"select count(*) from Desenvolvedores where email='"};
+36     query += email;
+37     query += \textcolor{stringliteral}{"' and senha ='"};
+38     query += senha;
+39     query += \textcolor{stringliteral}{"';"};
+40     resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+41 
+42     \textcolor{keywordflow}{if}(resultado != -1)
+43     \{
+44       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+45       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"desenvolvedor"};
+46     \}
+47   \}
+48 
+49   \textcolor{keywordflow}{if}(opcao == 3)
+50   \{
+51     query = \textcolor{stringliteral}{"select count(*) from Administradores where email='"};
+52     query += email;
+53     query += \textcolor{stringliteral}{"' and senha ='"};
+54     query += senha;
+55     query += \textcolor{stringliteral}{"';"};
+56     resultado = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(query);
+57 
+58     \textcolor{keywordflow}{if}(resultado != -1)
+59     \{
+60       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+61       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"administrador"};
+62     \}
+63   \}
+64 
+65   \textcolor{keywordflow}{if}(opcao == 4)
+66   \{
+67     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+68     \{
+69       cout << \textcolor{stringliteral}{"1 - Criar conta leitor\(\backslash\)n"};
+70       cout << \textcolor{stringliteral}{"2 - Criar conta Desenvolvedor\(\backslash\)n"};
+71       cout << \textcolor{stringliteral}{"3 - Criar conta Administrador\(\backslash\)n\(\backslash\)n"};
+72       cout << \textcolor{stringliteral}{"Selecione a opcao desejada: "};
+73       cin >> escolhaConta;
+74 
+75       \textcolor{keywordflow}{if}(escolhaConta == 1)
+76       \{
+77         \mbox{\hyperlink{class_servico_login_ae6786007e98ac8288dc53d025d5f5bcd}{criarUsuarioLeitor}}();
+78         \textcolor{keywordflow}{break};
+79       \}
+80       \textcolor{keywordflow}{else}
+81       \{
+82         \textcolor{keywordflow}{if}(escolhaConta == 2)
+83         \{
+84           \mbox{\hyperlink{class_servico_login_aff5fc69ce9c3fa82c6c575f025ac2a34}{criarUsuarioDesenvolvedor}}();
+85           \textcolor{keywordflow}{break};
+86         \}
+87         \textcolor{keywordflow}{else}
+88         \{
+89           \textcolor{keywordflow}{if}(escolhaConta == 3)
+90           \{
+91             \mbox{\hyperlink{class_servico_login_a2f7e5d945f4ce6b06c8ce093ed3755e7}{criarUsuarioAdministrador}}();
+92             \textcolor{keywordflow}{break};
+93           \}
+94           \textcolor{keywordflow}{else}
+95           \{
+96             cout << \textcolor{stringliteral}{"Opcao invalida, tente novamente...\(\backslash\)n\(\backslash\)n"};
+97           \}
+98         \}
+99       \}
+100     \}
+101   \}
+102 
+103   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+104   \textcolor{keywordflow}{return} \textcolor{stringliteral}{"erro"};
+105 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{servico_8hpp}{servico.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{servico_8cpp}{servico.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\hypertarget{class_classe_termo}{}\section{Referência da Classe Classe\+Termo}
+\label{class_classe_termo}\index{Classe\+Termo@{Classe\+Termo}}
+
+
+{\ttfamily \#include $<$dominios.\+hpp$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_classe_termo_a9392585ac39c1ed25ad54f0902138457}{set\+Termo}} (string termo)
+\item 
+string \mbox{\hyperlink{class_classe_termo_acef132214ef8a667c9b9ca262fe7a9da}{get\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_classe_termo_a950f042edfb8e2e40caafba76a636c93}{verifica\+Termo}} (string termo)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+D\+E\+C\+L\+A\+R\+A\+C\+AO C\+L\+A\+S\+SE -\/ C\+L\+A\+S\+SE DE T\+E\+R\+MO 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_classe_termo_acef132214ef8a667c9b9ca262fe7a9da}\label{class_classe_termo_acef132214ef8a667c9b9ca262fe7a9da}} 
+\index{Classe\+Termo@{Classe\+Termo}!get\+Termo@{get\+Termo}}
+\index{get\+Termo@{get\+Termo}!Classe\+Termo@{Classe\+Termo}}
+\subsubsection{\texorpdfstring{get\+Termo()}{getTermo()}}
+{\footnotesize\ttfamily string Classe\+Termo\+::get\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+495 \{
+496   \textcolor{keywordflow}{return} this->termo;
+497 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_classe_termo_a9392585ac39c1ed25ad54f0902138457}\label{class_classe_termo_a9392585ac39c1ed25ad54f0902138457}} 
+\index{Classe\+Termo@{Classe\+Termo}!set\+Termo@{set\+Termo}}
+\index{set\+Termo@{set\+Termo}!Classe\+Termo@{Classe\+Termo}}
+\subsubsection{\texorpdfstring{set\+Termo()}{setTermo()}}
+{\footnotesize\ttfamily void Classe\+Termo\+::set\+Termo (\begin{DoxyParamCaption}\item[{string}]{termo }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+489 \{
+490   \mbox{\hyperlink{class_classe_termo_a950f042edfb8e2e40caafba76a636c93}{verificaTermo}}(termo);
+491   this->termo = termo;
+492 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_classe_termo_a950f042edfb8e2e40caafba76a636c93}\label{class_classe_termo_a950f042edfb8e2e40caafba76a636c93}} 
+\index{Classe\+Termo@{Classe\+Termo}!verifica\+Termo@{verifica\+Termo}}
+\index{verifica\+Termo@{verifica\+Termo}!Classe\+Termo@{Classe\+Termo}}
+\subsubsection{\texorpdfstring{verifica\+Termo()}{verificaTermo()}}
+{\footnotesize\ttfamily void Classe\+Termo\+::verifica\+Termo (\begin{DoxyParamCaption}\item[{string}]{termo }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+500 \{
+501   \textcolor{keywordflow}{if}((termo != \textcolor{stringliteral}{"PT"}) && (termo != \textcolor{stringliteral}{"NP"}))
+502   \{
+503     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro: Termo Invalido\(\backslash\)n"};
+504   \}
+505 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8cpp}{dominios.\+cpp}}\end{DoxyCompactItemize}

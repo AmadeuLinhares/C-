@@ -1,0 +1,115 @@
+\hypertarget{class_data}{}\section{Referência da Classe Data}
+\label{class_data}\index{Data@{Data}}
+
+
+{\ttfamily \#include $<$dominios.\+hpp$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_data_a5245638838a033c98a8b760836dddb7d}{set\+Data}} (string data)
+\item 
+string \mbox{\hyperlink{class_data_afc7b15a5e81334858e48709b2f45cdc3}{get\+Data}} ()
+\item 
+void \mbox{\hyperlink{class_data_aa3c7b5fcca1f82689a7f6445e4d222c8}{verifica\+Data}} (string data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+D\+E\+C\+L\+A\+R\+A\+C\+AO C\+L\+A\+S\+SE D\+A\+TA 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_data_afc7b15a5e81334858e48709b2f45cdc3}\label{class_data_afc7b15a5e81334858e48709b2f45cdc3}} 
+\index{Data@{Data}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily string Data\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+229 \{
+230   \textcolor{keywordflow}{return} this->data;
+231 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_data_a5245638838a033c98a8b760836dddb7d}\label{class_data_a5245638838a033c98a8b760836dddb7d}} 
+\index{Data@{Data}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!Data@{Data}}
+\subsubsection{\texorpdfstring{set\+Data()}{setData()}}
+{\footnotesize\ttfamily void Data\+::set\+Data (\begin{DoxyParamCaption}\item[{string}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+221 \{
+222 
+223     \mbox{\hyperlink{class_data_aa3c7b5fcca1f82689a7f6445e4d222c8}{verificaData}}(data);
+224     this->data = data;
+225 
+226 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_data_aa3c7b5fcca1f82689a7f6445e4d222c8}\label{class_data_aa3c7b5fcca1f82689a7f6445e4d222c8}} 
+\index{Data@{Data}!verifica\+Data@{verifica\+Data}}
+\index{verifica\+Data@{verifica\+Data}!Data@{Data}}
+\subsubsection{\texorpdfstring{verifica\+Data()}{verificaData()}}
+{\footnotesize\ttfamily void Data\+::verifica\+Data (\begin{DoxyParamCaption}\item[{string}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+234 \{
+235   \textcolor{keywordtype}{int} tamanho = data.length();
+236   \textcolor{keywordflow}{if}(tamanho > 10)
+237   \{
+238     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro - Data Invalida\(\backslash\)n"};
+239   \}
+240 
+241   \textcolor{comment}{//verifica mês}
+242   \textcolor{keywordtype}{int} dia1 = data[0];
+243   \textcolor{keywordtype}{int} dia2 = data[1];
+244   \textcolor{keywordtype}{int} mes1 = data[3];
+245   \textcolor{keywordtype}{int} mes2 = data[4];
+246   \textcolor{keywordtype}{int} ano1 = data[6];
+247   \textcolor{keywordtype}{int} ano2 = data[7];
+248   \textcolor{keywordtype}{int} ano3 = data[8];
+249   \textcolor{keywordtype}{int} ano4 = data[9];
+250   \textcolor{keywordtype}{char} teste1 = data[2];
+251   \textcolor{keywordtype}{char} teste2 = data[5];
+252 
+253   \textcolor{keywordflow}{if}(dia1 > 51 || dia2 > 57)
+254   \{
+255     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro - Data Invalida\(\backslash\)n"};
+256   \}
+257 
+258   \textcolor{keywordflow}{if}( (mes1 > 49 || mes2 > 50) && (mes1 > 48 || mes2 > 57)  )
+259   \{
+260     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro - Data Invalida\(\backslash\)n"};
+261   \}
+262 
+263   \textcolor{keywordflow}{if}( ano1 == 50 )
+264   \{
+265     \textcolor{keywordflow}{if}( (ano2 != 48) || (ano3 > 57) || (ano4 > 57))
+266     \{
+267       \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro - Data Invalida\(\backslash\)n"};
+268     \}
+269   \}
+270 
+271   \textcolor{keywordflow}{if}(ano1 == 49)
+272   \{
+273     \textcolor{keywordflow}{if}( (ano2 != 57) || (ano3 < 48) || (ano4 < 48))
+274     \{
+275       \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro - Data Invalida\(\backslash\)n"};
+276     \}
+277   \}
+278 
+279 
+280   \textcolor{keywordflow}{if}( (teste1 != \textcolor{charliteral}{'/'}) || ( teste2 != \textcolor{charliteral}{'/'}) )
+281   \{
+282     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro - Data Invalida\(\backslash\)n"};
+283   \}
+284 
+285 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8cpp}{dominios.\+cpp}}\end{DoxyCompactItemize}

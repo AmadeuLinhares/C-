@@ -1,0 +1,69 @@
+\hypertarget{class_texto}{}\section{Referência da Classe Texto}
+\label{class_texto}\index{Texto@{Texto}}
+
+
+{\ttfamily \#include $<$dominios.\+hpp$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_texto_a004feae9e66adbde822d3c7738b8fbba}{set\+Texto}} (string texto)
+\item 
+string \mbox{\hyperlink{class_texto_a4765daf4056dbd736344b9b18728e0a0}{get\+Texto}} ()
+\item 
+void \mbox{\hyperlink{class_texto_a458031559654ecec7e2926f1946494e4}{verifica\+Texto}} (string texto)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+D\+E\+C\+L\+A\+R\+A\+C\+AO C\+L\+A\+S\+SE T\+E\+X\+TO DE D\+E\+F\+I\+N\+I\+C\+AO 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_texto_a4765daf4056dbd736344b9b18728e0a0}\label{class_texto_a4765daf4056dbd736344b9b18728e0a0}} 
+\index{Texto@{Texto}!get\+Texto@{get\+Texto}}
+\index{get\+Texto@{get\+Texto}!Texto@{Texto}}
+\subsubsection{\texorpdfstring{get\+Texto()}{getTexto()}}
+{\footnotesize\ttfamily string Texto\+::get\+Texto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+450 \{
+451   \textcolor{keywordflow}{return} this->texto;
+452 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_texto_a004feae9e66adbde822d3c7738b8fbba}\label{class_texto_a004feae9e66adbde822d3c7738b8fbba}} 
+\index{Texto@{Texto}!set\+Texto@{set\+Texto}}
+\index{set\+Texto@{set\+Texto}!Texto@{Texto}}
+\subsubsection{\texorpdfstring{set\+Texto()}{setTexto()}}
+{\footnotesize\ttfamily void Texto\+::set\+Texto (\begin{DoxyParamCaption}\item[{string}]{texto }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+444 \{
+445   \mbox{\hyperlink{class_texto_a458031559654ecec7e2926f1946494e4}{verificaTexto}}(texto);
+446   this->texto = texto;
+447 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_texto_a458031559654ecec7e2926f1946494e4}\label{class_texto_a458031559654ecec7e2926f1946494e4}} 
+\index{Texto@{Texto}!verifica\+Texto@{verifica\+Texto}}
+\index{verifica\+Texto@{verifica\+Texto}!Texto@{Texto}}
+\subsubsection{\texorpdfstring{verifica\+Texto()}{verificaTexto()}}
+{\footnotesize\ttfamily void Texto\+::verifica\+Texto (\begin{DoxyParamCaption}\item[{string}]{texto }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+455 \{
+456   \textcolor{keywordtype}{int} tamanho;
+457   tamanho = texto.length();
+458   \textcolor{keywordflow}{if}(tamanho > 30)
+459   \{
+460     \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Erro: Texto Invalido\(\backslash\)n"};
+461   \}
+462 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8cpp}{dominios.\+cpp}}\end{DoxyCompactItemize}

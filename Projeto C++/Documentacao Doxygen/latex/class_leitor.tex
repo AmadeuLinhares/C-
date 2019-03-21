@@ -1,0 +1,221 @@
+\hypertarget{class_leitor}{}\section{Referência da Classe Leitor}
+\label{class_leitor}\index{Leitor@{Leitor}}
+
+
+{\ttfamily \#include $<$entidades.\+hpp$>$}
+
+Diagrama de hierarquia para Leitor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_leitor}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_leitor_a2698f4915451a7a53985b8cd275f4ae1}{set\+Nome}} (const \mbox{\hyperlink{class_nome}{Nome}} \&nome)
+\item 
+\mbox{\hyperlink{class_nome}{Nome}} \mbox{\hyperlink{class_leitor_af12cee66e7318fcbb6a0e407a40fb902}{get\+Nome}} () const
+\item 
+void \mbox{\hyperlink{class_leitor_affdb7e753343758607242d67dcda033b}{set\+Sobrenome}} (const \mbox{\hyperlink{class_sobrenome}{Sobrenome}} \&sobrenome)
+\item 
+\mbox{\hyperlink{class_sobrenome}{Sobrenome}} \mbox{\hyperlink{class_leitor_ad8cf5a7cedecd12d087f7dde668c724a}{get\+Sobrenome}} ()
+\item 
+void \mbox{\hyperlink{class_leitor_adc476ba94b63efc6416c22989e55e7e0}{set\+Email}} (const \mbox{\hyperlink{class_email}{Email}} \&email)
+\item 
+\mbox{\hyperlink{class_email}{Email}} \mbox{\hyperlink{class_leitor_ae6cd620931ae336b9d9afa4f83944fc1}{get\+Email}} ()
+\item 
+void \mbox{\hyperlink{class_leitor_a6ddd3a32947bf14f52f1794b5e2d552f}{set\+Senha}} (const \mbox{\hyperlink{class_senha}{Senha}} \&senha)
+\item 
+\mbox{\hyperlink{class_senha}{Senha}} \mbox{\hyperlink{class_leitor_ae9e88af5c4f0db47e6c19040f7281f2a}{get\+Senha}} ()
+\item 
+string \mbox{\hyperlink{class_leitor_a013a50e7e5d471efe31ce4f612b7399d}{converte\+Nome}} (string nome)
+\item 
+string \mbox{\hyperlink{class_leitor_ad18d27138f12d31c4d7d3b011b7d1579}{converte\+Senha}} (string senha)
+\item 
+void \mbox{\hyperlink{class_leitor_ab3d322a25d04ea7c6b8daf0d1bf0d85f}{valida\+Senha}} (string senha, string nome)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+F\+U\+N\+C\+O\+ES E\+N\+T\+I\+D\+A\+DE L\+E\+I\+T\+OR set\+Nome get\+Nome set\+Sobrenome get\+Sobrenome set\+Email get\+Email set\+Senha get\+Senha converte\+Nome converte\+Senha valida\+Senha 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_leitor_a013a50e7e5d471efe31ce4f612b7399d}\label{class_leitor_a013a50e7e5d471efe31ce4f612b7399d}} 
+\index{Leitor@{Leitor}!converte\+Nome@{converte\+Nome}}
+\index{converte\+Nome@{converte\+Nome}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{converte\+Nome()}{converteNome()}}
+{\footnotesize\ttfamily string Leitor\+::converte\+Nome (\begin{DoxyParamCaption}\item[{string}]{nome }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+69 \{
+70  \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<nome.length(); i++)
+71  \{
+72    nome[i] = toupper(nome[i]);
+73  \}
+74 
+75  \textcolor{keywordflow}{return} nome;
+76 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_ad18d27138f12d31c4d7d3b011b7d1579}\label{class_leitor_ad18d27138f12d31c4d7d3b011b7d1579}} 
+\index{Leitor@{Leitor}!converte\+Senha@{converte\+Senha}}
+\index{converte\+Senha@{converte\+Senha}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{converte\+Senha()}{converteSenha()}}
+{\footnotesize\ttfamily string Leitor\+::converte\+Senha (\begin{DoxyParamCaption}\item[{string}]{senha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+79 \{
+80  \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<senha.length(); i++)
+81  \{
+82    senha[i] = toupper(senha[i]);
+83  \}
+84 
+85  \textcolor{keywordflow}{return} senha;
+86 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_ae6cd620931ae336b9d9afa4f83944fc1}\label{class_leitor_ae6cd620931ae336b9d9afa4f83944fc1}} 
+\index{Leitor@{Leitor}!get\+Email@{get\+Email}}
+\index{get\+Email@{get\+Email}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{get\+Email()}{getEmail()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_email}{Email}} Leitor\+::get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+54  \{
+55    \textcolor{keywordflow}{return} email;
+56  \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_af12cee66e7318fcbb6a0e407a40fb902}\label{class_leitor_af12cee66e7318fcbb6a0e407a40fb902}} 
+\index{Leitor@{Leitor}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{get\+Nome()}{getNome()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_nome}{Nome}} Leitor\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+34                          \{
+35         \textcolor{keywordflow}{return} nome;
+36     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_ae9e88af5c4f0db47e6c19040f7281f2a}\label{class_leitor_ae9e88af5c4f0db47e6c19040f7281f2a}} 
+\index{Leitor@{Leitor}!get\+Senha@{get\+Senha}}
+\index{get\+Senha@{get\+Senha}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{get\+Senha()}{getSenha()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_senha}{Senha}} Leitor\+::get\+Senha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+64 \{
+65  \textcolor{keywordflow}{return} senha;
+66 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_ad8cf5a7cedecd12d087f7dde668c724a}\label{class_leitor_ad8cf5a7cedecd12d087f7dde668c724a}} 
+\index{Leitor@{Leitor}!get\+Sobrenome@{get\+Sobrenome}}
+\index{get\+Sobrenome@{get\+Sobrenome}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{get\+Sobrenome()}{getSobrenome()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sobrenome}{Sobrenome}} Leitor\+::get\+Sobrenome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+44    \{
+45      \textcolor{keywordflow}{return} sobrenome;
+46    \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_adc476ba94b63efc6416c22989e55e7e0}\label{class_leitor_adc476ba94b63efc6416c22989e55e7e0}} 
+\index{Leitor@{Leitor}!set\+Email@{set\+Email}}
+\index{set\+Email@{set\+Email}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{set\+Email()}{setEmail()}}
+{\footnotesize\ttfamily void Leitor\+::set\+Email (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_email}{Email}} \&}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+49   \{
+50     this->email = email;
+51   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_a2698f4915451a7a53985b8cd275f4ae1}\label{class_leitor_a2698f4915451a7a53985b8cd275f4ae1}} 
+\index{Leitor@{Leitor}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{set\+Nome()}{setNome()}}
+{\footnotesize\ttfamily void Leitor\+::set\+Nome (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_nome}{Nome}} \&}]{nome }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+30                                   \{
+31         this->nome = nome;
+32     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_a6ddd3a32947bf14f52f1794b5e2d552f}\label{class_leitor_a6ddd3a32947bf14f52f1794b5e2d552f}} 
+\index{Leitor@{Leitor}!set\+Senha@{set\+Senha}}
+\index{set\+Senha@{set\+Senha}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{set\+Senha()}{setSenha()}}
+{\footnotesize\ttfamily void Leitor\+::set\+Senha (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_senha}{Senha}} \&}]{senha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+59 \{
+60   this->senha = senha;
+61 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_affdb7e753343758607242d67dcda033b}\label{class_leitor_affdb7e753343758607242d67dcda033b}} 
+\index{Leitor@{Leitor}!set\+Sobrenome@{set\+Sobrenome}}
+\index{set\+Sobrenome@{set\+Sobrenome}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{set\+Sobrenome()}{setSobrenome()}}
+{\footnotesize\ttfamily void Leitor\+::set\+Sobrenome (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sobrenome}{Sobrenome}} \&}]{sobrenome }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+39     \{
+40       this->sobrenome = sobrenome;
+41     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_leitor_ab3d322a25d04ea7c6b8daf0d1bf0d85f}\label{class_leitor_ab3d322a25d04ea7c6b8daf0d1bf0d85f}} 
+\index{Leitor@{Leitor}!valida\+Senha@{valida\+Senha}}
+\index{valida\+Senha@{valida\+Senha}!Leitor@{Leitor}}
+\subsubsection{\texorpdfstring{valida\+Senha()}{validaSenha()}}
+{\footnotesize\ttfamily void Leitor\+::valida\+Senha (\begin{DoxyParamCaption}\item[{string}]{senha,  }\item[{string}]{nome }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+89 \{
+90  \textcolor{keywordtype}{string} senhaConvertida = \mbox{\hyperlink{class_leitor_ad18d27138f12d31c4d7d3b011b7d1579}{converteSenha}}(senha);
+91  \textcolor{keywordtype}{string} nomeConvertido = \mbox{\hyperlink{class_leitor_a013a50e7e5d471efe31ce4f612b7399d}{converteNome}}(nome);
+92  \textcolor{keywordtype}{int} tamanhoNome;
+93  \textcolor{keywordtype}{int} i;
+94  tamanhoNome = nomeConvertido.length();
+95  \textcolor{keywordtype}{string} copiaNome;
+96  \textcolor{keywordtype}{int} posicaoNome = senhaConvertida.find(nomeConvertido);
+97  \textcolor{keywordtype}{int} t = posicaoNome;
+98  \textcolor{keywordtype}{int} verifica = 0;
+99 
+100  \textcolor{keywordflow}{for}(i = 0 ; i < tamanhoNome ; i++)
+101  \{
+102    copiaNome[i] = senhaConvertida[t];
+103    t++;
+104  \}
+105 
+106  \textcolor{keywordflow}{for}(i = 0 ; i < tamanhoNome ; i++)
+107  \{
+108 
+109    \textcolor{keywordflow}{if}(copiaNome[i] == nomeConvertido[i])
+110    \{
+111      verifica++;
+112    \}
+113  \}
+114 
+115  \textcolor{keywordflow}{if}(verifica == tamanhoNome)
+116  \{
+117    \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"Senha invalida, seu nome esta contido na senha\(\backslash\)n"};
+118  \}
+119 
+120  cout<<\textcolor{stringliteral}{"Senha Validada com sucesso\(\backslash\)n"};
+121 
+122 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{entidades_8hpp}{entidades.\+hpp}}\end{DoxyCompactItemize}

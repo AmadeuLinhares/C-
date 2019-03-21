@@ -1,0 +1,73 @@
+\hypertarget{class_controladora_apresentacao}{}\section{Referência da Classe Controladora\+Apresentacao}
+\label{class_controladora_apresentacao}\index{Controladora\+Apresentacao@{Controladora\+Apresentacao}}
+
+
+{\ttfamily \#include $<$controladoras.\+hpp$>$}
+
+Diagrama de hierarquia para Controladora\+Apresentacao\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_controladora_apresentacao}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_controladora_apresentacao_a303849d9fd6785bcbdd5c96fb2413ef3}{menu}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Parte do trabalho que possui a declaracao de duas classes, a primeira sendo a \mbox{\hyperlink{class_controladora_apresentacao}{Controladora\+Apresentacao}} que herda os metodos da classe Interface\+Apresentacao e a segunda sendo Controladora\+Usuario que herda os metodos da classe Interface\+Apresentacao\+Usuario 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_controladora_apresentacao_a303849d9fd6785bcbdd5c96fb2413ef3}\label{class_controladora_apresentacao_a303849d9fd6785bcbdd5c96fb2413ef3}} 
+\index{Controladora\+Apresentacao@{Controladora\+Apresentacao}!menu@{menu}}
+\index{menu@{menu}!Controladora\+Apresentacao@{Controladora\+Apresentacao}}
+\subsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily int Controladora\+Apresentacao\+::menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Primeiramente temos o metodo validar da classe \mbox{\hyperlink{class_controladora_apresentacao_usuario}{Controladora\+Apresentacao\+Usuario}}. Esse metodo pede um nome, e-\/mail e senha do usuario do programa, jogando esses informacoes dentro de objetos criados ao inicio do metodo Colocado dentro de um while, o usuario do pode logar se suas informacoes bateram com as Triggers de informacoes, existindo uma para cada tipo de usuario possivel do sistema (\mbox{\hyperlink{class_leitor}{Leitor}}, desenvolvedor e administrador) Se as informacoes foram colocadas corretamente, o metodo ira retornar o e-\/mail digitado pelo usuario, onde de acordo com esse e-\/mail retornado para o main, o programa ira identificar qual o tipo de Usuario e criar os devidos objetos para cada um deles.
+
+O proximo metodo se chama opcao\+Leitor(), onde esse metodo ira mostrar as opcoes para o usurio que faça o login como \mbox{\hyperlink{class_leitor}{Leitor}} no sistema. O metodo consiste em um while que mostra as opcoes do sistema e so saira do while quando o usuario escolher uma opcao valida. Esse numero de opcao sera armazenado em uma variavel e retornado para a funcao main, onde sera aproveitado em outro metodo que veremos na aba das Stubs.\+cpp
+
+O proximo metodo se chama opcao\+Desenvolvedor(), onde esse metodo ira mostrar as opcoes para o usurio que faça o login como \mbox{\hyperlink{class_desenvolvedor}{Desenvolvedor}} no sistema. O metodo consiste em um while que mostra as opcoes do sistema e so saira do while quando o usuario escolher uma opcao valida. Esse numero de opcao sera armazenado em uma variavel e retornado para a funcao main, onde sera aproveitado em outro metodo que veremos na aba das Stubs.\+cpp
+
+O proximo metodo se chama opcao\+Administrador(), onde esse metodo ira mostrar as opcoes para o usurio que faça o login como \mbox{\hyperlink{class_administrador}{Administrador}} no sistema. O metodo consiste em um while que mostra as opcoes do sistema e so saira do while quando o usuario escolher uma opcao valida. Esse numero de opcao sera armazenado em uma variavel e retornado para a funcao main, onde sera aproveitado em outro metodo que veremos na aba das Stubs.\+cpp 
+
+Implementa \mbox{\hyperlink{class_crlt_apresentacao_login_a76226b00329c638d6de95458ad87756e}{Crlt\+Apresentacao\+Login}}.
+
+
+\begin{DoxyCode}
+22 \{
+23   \textcolor{keywordtype}{int} opcao;
+24   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+25   \{
+26     cout <<    \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t\(\backslash\)t Vocabulario Controlado "}   <<\textcolor{stringliteral}{"\(\backslash\)n"}<<endl;
+27     cout << \textcolor{stringliteral}{"\(\backslash\)t1- Logar como Leitor\(\backslash\)n"};
+28     cout << \textcolor{stringliteral}{"\(\backslash\)t2- Logar como Desenvolvedor\(\backslash\)n"};
+29     cout << \textcolor{stringliteral}{"\(\backslash\)t3- Logar como Administrador\(\backslash\)n"};
+30     cout << \textcolor{stringliteral}{"\(\backslash\)t4- Criar conta\(\backslash\)n\(\backslash\)n"};
+31 
+32     cout << \textcolor{stringliteral}{"\(\backslash\)t*Digite a opcao escolhida: "};
+33     cin >> opcao;
+34 
+35     \textcolor{keywordflow}{if}((opcao != 1) && (opcao != 2) && (opcao != 3) && (opcao != 4))
+36     \{
+37       cout << \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t\(\backslash\)tOpcao invalida, tente novamente\(\backslash\)n\(\backslash\)n"};
+38     \}
+39     \textcolor{keywordflow}{else}
+40     \{
+41       \textcolor{keywordflow}{break};
+42     \}
+43   \}
+44 
+45   \textcolor{keywordflow}{return} opcao;
+46 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{controladoras_8hpp}{controladoras.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{controladoras_8cpp}{controladoras.\+cpp}}\end{DoxyCompactItemize}

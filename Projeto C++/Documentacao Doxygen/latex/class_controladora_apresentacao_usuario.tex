@@ -1,0 +1,171 @@
+\hypertarget{class_controladora_apresentacao_usuario}{}\section{Referência da Classe Controladora\+Apresentacao\+Usuario}
+\label{class_controladora_apresentacao_usuario}\index{Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}}
+
+
+{\ttfamily \#include $<$controladoras.\+hpp$>$}
+
+Diagrama de hierarquia para Controladora\+Apresentacao\+Usuario\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_controladora_apresentacao_usuario}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_controladora_apresentacao_usuario_a22b31c99a738845f00ec2703c1c6dded}{opcao\+Leitor}} ()
+\item 
+int \mbox{\hyperlink{class_controladora_apresentacao_usuario_a1d9f2e8522d9e0eefaf08caca98008c2}{opcao\+Desenvolvedor}} ()
+\item 
+int \mbox{\hyperlink{class_controladora_apresentacao_usuario_ae4d0223e4aabe11b58039c84c80503c9}{opcao\+Administrador}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_controladora_apresentacao_usuario_ae4d0223e4aabe11b58039c84c80503c9}\label{class_controladora_apresentacao_usuario_ae4d0223e4aabe11b58039c84c80503c9}} 
+\index{Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}!opcao\+Administrador@{opcao\+Administrador}}
+\index{opcao\+Administrador@{opcao\+Administrador}!Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}}
+\subsubsection{\texorpdfstring{opcao\+Administrador()}{opcaoAdministrador()}}
+{\footnotesize\ttfamily int Controladora\+Apresentacao\+Usuario\+::opcao\+Administrador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implementa \mbox{\hyperlink{class_crlt_apresentacao_usuario_aa4e0600a397ea82224441793424d7daa}{Crlt\+Apresentacao\+Usuario}}.
+
+
+\begin{DoxyCode}
+124 \{
+125   \textcolor{keywordtype}{int} entrada;
+126   \textcolor{keywordtype}{int} aux = 0;
+127   \textcolor{keywordflow}{while}(aux == 0)
+128   \{
+129       cout << \textcolor{stringliteral}{"Opções para Usuario Desenvolvedor\(\backslash\)n"} << endl;
+130       cout << \textcolor{stringliteral}{"1- Apresentar dados do Usúario\(\backslash\)n"};
+131       cout << \textcolor{stringliteral}{"2- Editar dados do Usuario\(\backslash\)n"};
+132       cout << \textcolor{stringliteral}{"3- Excluir Conta\(\backslash\)n"};
+133       cout << \textcolor{stringliteral}{"4- Listar nomes dos vocabularios controlados\(\backslash\)n"};
+134       cout << \textcolor{stringliteral}{"5- Dados do vocabulario controlado\(\backslash\)n"};
+135       cout << \textcolor{stringliteral}{"6- Consultar Termo\(\backslash\)n"};
+136       cout << \textcolor{stringliteral}{"7- Consultar definição de termos\(\backslash\)n"};
+137       cout << \textcolor{stringliteral}{"8- Cadastro desenvolvedor de vocabulario controlado\(\backslash\)n"};
+138       cout << \textcolor{stringliteral}{"9- Criar Termo\(\backslash\)n"};
+139       cout << \textcolor{stringliteral}{"10- Editar Termo\(\backslash\)n"};
+140       cout << \textcolor{stringliteral}{"11- Excluir Termo\(\backslash\)n"};
+141       cout << \textcolor{stringliteral}{"12- Criar definicao para termo\(\backslash\)n"};
+142       cout << \textcolor{stringliteral}{"13- Excluir definicao de termo\(\backslash\)n"};
+143       cout << \textcolor{stringliteral}{"14- Editar definicao de termo \(\backslash\)n"};
+144       cout << \textcolor{stringliteral}{"15- Criar Vocabulario controlado\(\backslash\)n"};
+145       cout << \textcolor{stringliteral}{"16- Editar definicao de vocabulario controlado\(\backslash\)n"};
+146       cout << \textcolor{stringliteral}{"17- Alterar idioma de vocabulario controlado\(\backslash\)n"};
+147       cout << \textcolor{stringliteral}{"18- Excluir Vocabulario Controlado\(\backslash\)n"};
+148       cout << \textcolor{stringliteral}{"Digite a opçāo desejada: "};
+149       cin >> entrada;
+150       cout << \textcolor{stringliteral}{"\(\backslash\)n"};
+151       \textcolor{keywordflow}{if}(entrada < 1 || entrada > 18)
+152       \{
+153         cout << \textcolor{stringliteral}{"Erro, Opçao invalida.....\(\backslash\)n"} << endl;
+154         cout << \textcolor{stringliteral}{"Retornando para o Menu de escolhas \(\backslash\)n"} << endl;
+155       \}
+156       \textcolor{keywordflow}{else}
+157       \{
+158         aux = 1;
+159       \}
+160   \}
+161   \textcolor{keywordflow}{return} entrada;
+162 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_controladora_apresentacao_usuario_a1d9f2e8522d9e0eefaf08caca98008c2}\label{class_controladora_apresentacao_usuario_a1d9f2e8522d9e0eefaf08caca98008c2}} 
+\index{Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}!opcao\+Desenvolvedor@{opcao\+Desenvolvedor}}
+\index{opcao\+Desenvolvedor@{opcao\+Desenvolvedor}!Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}}
+\subsubsection{\texorpdfstring{opcao\+Desenvolvedor()}{opcaoDesenvolvedor()}}
+{\footnotesize\ttfamily int Controladora\+Apresentacao\+Usuario\+::opcao\+Desenvolvedor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implementa \mbox{\hyperlink{class_crlt_apresentacao_usuario_ad9091cb4093bdc687c0deffb5b00512c}{Crlt\+Apresentacao\+Usuario}}.
+
+
+\begin{DoxyCode}
+82 \{
+83   \textcolor{keywordtype}{int} entrada;
+84   \textcolor{keywordtype}{int} aux = 0;
+85   \textcolor{keywordflow}{while}(aux == 0)
+86   \{
+87       cout << \textcolor{stringliteral}{"Opções para Usuario Desenvolvedor\(\backslash\)n"} << endl;
+88       cout << \textcolor{stringliteral}{"1- Apresentar dados do Usúario\(\backslash\)n"};
+89       cout << \textcolor{stringliteral}{"2- Editar dados do Usuario\(\backslash\)n"};
+90       cout << \textcolor{stringliteral}{"3- Excluir Conta\(\backslash\)n"};
+91       cout << \textcolor{stringliteral}{"4- Listar nomes dos vocabularios controlados\(\backslash\)n"};
+92       cout << \textcolor{stringliteral}{"5- Dados do vocabulario controlado\(\backslash\)n"};
+93       cout << \textcolor{stringliteral}{"6- Consultar Termo\(\backslash\)n"};
+94       cout << \textcolor{stringliteral}{"7- Consultar definição de termos\(\backslash\)n"};
+95       cout << \textcolor{stringliteral}{"8- Cadastro desenvolvedor de vocabulario controlado\(\backslash\)n"};
+96       cout << \textcolor{stringliteral}{"9- Criar Termo\(\backslash\)n"};
+97       cout << \textcolor{stringliteral}{"10- Editar Termo\(\backslash\)n"};
+98       cout << \textcolor{stringliteral}{"11- Excluir Termo\(\backslash\)n"};
+99       cout << \textcolor{stringliteral}{"12- Criar definicao para termo\(\backslash\)n"};
+100       cout << \textcolor{stringliteral}{"13- Excluir definicao de termo\(\backslash\)n"};
+101       cout << \textcolor{stringliteral}{"14- Editar definicao de termo \(\backslash\)n\(\backslash\)n"};
+102       cout << \textcolor{stringliteral}{"Digite a opçāo desejada: "};
+103       cin >> entrada;
+104       cout << \textcolor{stringliteral}{"\(\backslash\)n"};
+105       \textcolor{keywordflow}{if}(entrada < 1 || entrada > 14)
+106       \{
+107         cout << \textcolor{stringliteral}{"Erro, Opçao invalida.....\(\backslash\)n"} << endl;
+108         cout << \textcolor{stringliteral}{"Retornando para o Menu de escolhas \(\backslash\)n"} << endl;
+109       \}
+110       \textcolor{keywordflow}{else}
+111       \{
+112         aux = 1;
+113       \}
+114   \}
+115   \textcolor{keywordflow}{return} entrada;
+116 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_controladora_apresentacao_usuario_a22b31c99a738845f00ec2703c1c6dded}\label{class_controladora_apresentacao_usuario_a22b31c99a738845f00ec2703c1c6dded}} 
+\index{Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}!opcao\+Leitor@{opcao\+Leitor}}
+\index{opcao\+Leitor@{opcao\+Leitor}!Controladora\+Apresentacao\+Usuario@{Controladora\+Apresentacao\+Usuario}}
+\subsubsection{\texorpdfstring{opcao\+Leitor()}{opcaoLeitor()}}
+{\footnotesize\ttfamily int Controladora\+Apresentacao\+Usuario\+::opcao\+Leitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implementa \mbox{\hyperlink{class_crlt_apresentacao_usuario_a627dcf5329233dee6ef2888dacf8a5a1}{Crlt\+Apresentacao\+Usuario}}.
+
+
+\begin{DoxyCode}
+52 \{
+53   \textcolor{keywordtype}{int} entrada;
+54   \textcolor{keywordtype}{int} aux = 0;
+55   \textcolor{keywordflow}{while}(aux == 0)
+56   \{
+57       cout << \textcolor{stringliteral}{"Opções para Usuario Leitor\(\backslash\)n"} << endl;
+58       cout << \textcolor{stringliteral}{"1- Apresentar dados do Usúario\(\backslash\)n"};
+59       cout << \textcolor{stringliteral}{"2- Editar dados do Usuario\(\backslash\)n"};
+60       cout << \textcolor{stringliteral}{"3- Excluir Conta\(\backslash\)n"};
+61       cout << \textcolor{stringliteral}{"4- Listar nomes dos vocabularios controlados\(\backslash\)n"};
+62       cout << \textcolor{stringliteral}{"5- Dados do vocabulario controlado\(\backslash\)n"};
+63       cout << \textcolor{stringliteral}{"6- Consultar Termo\(\backslash\)n"};
+64       cout << \textcolor{stringliteral}{"7- Consultar definição de termos\(\backslash\)n\(\backslash\)n"};
+65       cout << \textcolor{stringliteral}{"Digite a opçāo desejada: "};
+66       cin >> entrada;
+67       cout << \textcolor{stringliteral}{"\(\backslash\)n"};
+68       \textcolor{keywordflow}{if}(entrada < 1 || entrada > 7)
+69       \{
+70         cout << \textcolor{stringliteral}{"Erro, Opçao invalida.....\(\backslash\)n"} << endl;
+71         cout << \textcolor{stringliteral}{"Retornando para o Menu de escolhas \(\backslash\)n"} << endl;
+72       \}
+73       \textcolor{keywordflow}{else}
+74       \{
+75         aux = 1;
+76       \}
+77   \}
+78   \textcolor{keywordflow}{return} entrada;
+79 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{controladoras_8hpp}{controladoras.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{controladoras_8cpp}{controladoras.\+cpp}}\end{DoxyCompactItemize}

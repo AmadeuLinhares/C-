@@ -1,0 +1,380 @@
+\hypertarget{class_servico_usuarios_leitor}{}\section{Referência da Classe Servico\+Usuarios\+Leitor}
+\label{class_servico_usuarios_leitor}\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+
+
+{\ttfamily \#include $<$servico.\+hpp$>$}
+
+Diagrama de hierarquia para Servico\+Usuarios\+Leitor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_servico_usuarios_leitor}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_a9a8e9ac18739ef8e75f670236ba90c20}{opcao\+Escolhida\+Leitor}} (int opcao, string email)
+\item 
+int \mbox{\hyperlink{class_servico_usuarios_leitor_a8f34dddc0540f729a701d69f948ffb42}{consultar\+Cadastro\+Leitor}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_adce08fccebc11dbd5f395b8a4bb23d2a}{excluir\+Usuario\+Leitor}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_ad77426aecdda591b99ecbf8259a05b2d}{atualizar\+Usuario\+Leitor}} (string email)
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_a376f7cdbdea50d9a01ce611e79d346c4}{list\+Nome\+Vocabularios}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_a4f533d318634c95d3f756a45c7613047}{list\+Dados\+Vocabulario}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_a79d3a1814ad33930aae0c3a74c879e92}{consultar\+Termo}} ()
+\item 
+void \mbox{\hyperlink{class_servico_usuarios_leitor_a89ed39e45ee1c564e1f62df7154d1b29}{consultar\+Definicao\+Termo}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_ad77426aecdda591b99ecbf8259a05b2d}\label{class_servico_usuarios_leitor_ad77426aecdda591b99ecbf8259a05b2d}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!atualizar\+Usuario\+Leitor@{atualizar\+Usuario\+Leitor}}
+\index{atualizar\+Usuario\+Leitor@{atualizar\+Usuario\+Leitor}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{atualizar\+Usuario\+Leitor()}{atualizarUsuarioLeitor()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::atualizar\+Usuario\+Leitor (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Essa funcao recebe com parametro o email do usuario logado no sistema. Ao executar essa Funcao o usuario logado tera que editar todos os dados de seu cadastro, sem opcao de escolha, e os novos dados tambem irao passar por uma verificacao antes de ocorrer a substituicao dos dados Apos a validacao das informacoes, uma query e montada e com isso os novos dados sao armazenados no banco de dados
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_a075822102b4f3cbf1805507d8b78fde8}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+253 \{
+262   \mbox{\hyperlink{class_nome}{Nome}} *nome = \textcolor{keyword}{new} \mbox{\hyperlink{class_nome}{Nome}}();
+263   \mbox{\hyperlink{class_sobrenome}{Sobrenome}} *sobrenome = \textcolor{keyword}{new} \mbox{\hyperlink{class_sobrenome}{Sobrenome}}();
+264   \mbox{\hyperlink{class_email}{Email}} *emailAtualiza = \textcolor{keyword}{new} \mbox{\hyperlink{class_email}{Email}}();
+265   \mbox{\hyperlink{class_senha}{Senha}} *senha = \textcolor{keyword}{new} \mbox{\hyperlink{class_senha}{Senha}}();
+266   \textcolor{comment}{//Leitor *leitor = new Leitor();}
+267   \textcolor{keywordtype}{string} entrada;
+268   \textcolor{keywordtype}{int} recebe;
+269   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})
+270   \{
+271       \textcolor{keywordflow}{try}
+272       \{
+273         cout << \textcolor{stringliteral}{"Nome: "};
+274         cin >> entrada;
+275         nome->\mbox{\hyperlink{class_nome_a83b9f56ec9f86f4b976846f4c5c65b30}{setNome}}(entrada);
+276         \textcolor{comment}{//leitor->setNome(nome);}
+277 
+278         cout << \textcolor{stringliteral}{"Sobrenome: "};
+279         cin >> entrada;
+280         sobrenome->\mbox{\hyperlink{class_sobrenome_a9dc2277e3600656838e47c86dfddd23a}{setSobrenome}}(entrada);
+281 
+282         cout << \textcolor{stringliteral}{"Email: "};
+283         cin >> entrada;
+284         emailAtualiza->\mbox{\hyperlink{class_email_a2614b3a19d961411d1bece9c1bdf616f}{setEmail}}(entrada);
+285 
+286         cout << \textcolor{stringliteral}{"Senha: "};
+287         cin >> entrada;
+288         senha->\mbox{\hyperlink{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}{setSenha}}(entrada,nome);
+289 
+290         \textcolor{keywordflow}{break};
+291       \}
+292       \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *erro)
+293       \{
+294         cout << erro << endl;
+295       \}
+296     \}
+297 
+298   queryAtualiza = \textcolor{stringliteral}{"update Leitores set nome = '"};
+299   queryAtualiza += nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}();
+300   queryAtualiza += \textcolor{stringliteral}{"',sobrenome = '"};
+301   queryAtualiza += sobrenome->\mbox{\hyperlink{class_sobrenome_a954491366ce07f6715f32a97d67edf04}{getSobrenome}}();
+302   queryAtualiza += \textcolor{stringliteral}{"',email = '"};
+303   queryAtualiza += emailAtualiza->\mbox{\hyperlink{class_email_aa9a0e1a66b4efde65cf017bdd1c6c625}{getEmail}}();
+304   queryAtualiza += \textcolor{stringliteral}{"',senha = '"};
+305   queryAtualiza += senha->\mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{getSenha}}();
+306   queryAtualiza += \textcolor{stringliteral}{"' where email = '"};
+307   queryAtualiza += email;
+308   queryAtualiza += \textcolor{stringliteral}{"';"};
+309 
+310   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+311   recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryAtualiza);
+312   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+313 
+314 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_a8f34dddc0540f729a701d69f948ffb42}\label{class_servico_usuarios_leitor_a8f34dddc0540f729a701d69f948ffb42}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!consultar\+Cadastro\+Leitor@{consultar\+Cadastro\+Leitor}}
+\index{consultar\+Cadastro\+Leitor@{consultar\+Cadastro\+Leitor}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{consultar\+Cadastro\+Leitor()}{consultarCadastroLeitor()}}
+{\footnotesize\ttfamily int Servico\+Usuarios\+Leitor\+::consultar\+Cadastro\+Leitor (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Funcao consiste em receber o email do leitor que logou no sistema e com isso executar uma query no qual os dados desse mesmo leitor serao apresentados na tela
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_a4585305b98f21fe233b2c798edb47496}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+117 \{
+123   queryConsulta = \textcolor{stringliteral}{"select * from Leitores where email= '"};
+124   queryConsulta += email;
+125   queryConsulta += \textcolor{stringliteral}{"';"};
+126   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+127 
+128   cout << \textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t------------- Dados do Usuario -----------------\(\backslash\)n"};
+129 
+130   resultadoQueryUsuario = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryConsulta);
+131 
+132   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+133 
+134   \textcolor{keywordflow}{return} resultadoQueryUsuario;
+135 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_a89ed39e45ee1c564e1f62df7154d1b29}\label{class_servico_usuarios_leitor_a89ed39e45ee1c564e1f62df7154d1b29}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!consultar\+Definicao\+Termo@{consultar\+Definicao\+Termo}}
+\index{consultar\+Definicao\+Termo@{consultar\+Definicao\+Termo}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{consultar\+Definicao\+Termo()}{consultarDefinicaoTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::consultar\+Definicao\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Mais uma vez os termos da tabela precisam estar bem evidentes na mente de quem ira usar Essa funcao. Primeiro o programa realiza o questionamento de qual termo o usuario deseja consultar sua definicao. Apos isso uma verificacao ocorre a procura desse termo em duas tabelas juntas, processo conhecido no S\+QL como inner join, para assim podermos validar a existencia do termo na tabela \mbox{\hyperlink{class_termo}{Termo}} e na tabela \mbox{\hyperlink{class_definicao}{Definicao}}. Tendo um resultado positivo nessa pesquisa, a tabela \mbox{\hyperlink{class_definicao}{Definicao}} sera acionada, procurando e mostrando as informacoes do termo em questao.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_aefac628815c948981d03e2ad00033b47}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+413     \{
+422       \textcolor{keywordtype}{string} nomeTermo;
+423       \textcolor{keywordtype}{string} queryVerifica;
+424       \textcolor{keywordtype}{int} recebe;
+425 
+426       cout << \textcolor{stringliteral}{"Digite o nome do Termo no qual deseja consultar sua definicao: "};
+427       cin >> nomeTermo;
+428 
+429 
+430       queryVerifica = \textcolor{stringliteral}{"select count(*) from Termo inner join Definicao on Termo.nome = '"};
+431       queryVerifica += nomeTermo;
+432       queryVerifica += \textcolor{stringliteral}{"' and Definicao.termos = '"};
+433       queryVerifica += nomeTermo;
+434       queryVerifica += \textcolor{stringliteral}{"';"};
+435 
+436       cout << \textcolor{stringliteral}{"QUERY: "} <<  queryVerifica << endl;
+437 
+438       \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+439       recebe = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryVerifica);
+440 
+441       cout << \textcolor{stringliteral}{"VALOR: "} << recebe << endl;
+442 
+443       \textcolor{keywordflow}{if}(recebe > 0)
+444       \{
+445         queryVerifica = \textcolor{stringliteral}{"select texto from Definicao where termos = '"};
+446         queryVerifica += nomeTermo;
+447         queryVerifica += \textcolor{stringliteral}{"';"};
+448         recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryVerifica);
+449       \}
+450       \textcolor{keywordflow}{else}
+451       \{
+452         cout << \textcolor{stringliteral}{"Definicao para o termo "} << nomeTermo << \textcolor{stringliteral}{" nao foi encontrada"} << endl;
+453       \}
+454 
+455       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+456    \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_a79d3a1814ad33930aae0c3a74c879e92}\label{class_servico_usuarios_leitor_a79d3a1814ad33930aae0c3a74c879e92}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!consultar\+Termo@{consultar\+Termo}}
+\index{consultar\+Termo@{consultar\+Termo}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{consultar\+Termo()}{consultarTermo()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::consultar\+Termo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Nessa funcao o usuario tambem precisa saber o que esta procurando. O programa ira perguntar qual termo que o usuario deseja consultar. Uma verificacao sera rodada para ver se o termo realmente existe. Em caso positivo, os dados daquele termo serao apresentados na tela para o usuario
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_a4b381e72dddde7fffc5a75328dbf3198}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+376   \{
+382     \textcolor{keywordtype}{string} nomeTermo;
+383     \textcolor{keywordtype}{string} queryVerifica;
+384     \textcolor{keywordtype}{int} recebe;
+385 
+386     cout << \textcolor{stringliteral}{"Digite o nome do Termo que deseja consultar: "};
+387     cin >> nomeTermo;
+388 
+389 
+390     queryVerifica = \textcolor{stringliteral}{"select count(*) from Termo where nome = '"};
+391     queryVerifica += nomeTermo;
+392     queryVerifica += \textcolor{stringliteral}{"';"};
+393 
+394     \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+395     recebe = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryVerifica);
+396 
+397     \textcolor{keywordflow}{if}(recebe > 0)
+398         \{
+399           queryVerifica = \textcolor{stringliteral}{"select * from Termo where nome = '"};
+400           queryVerifica += nomeTermo;
+401           queryVerifica += \textcolor{stringliteral}{"';"};
+402           recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryVerifica);
+403         \}
+404     \textcolor{keywordflow}{else}
+405         \{
+406           cout << \textcolor{stringliteral}{"Termo nao consta em nosso banco de dados\(\backslash\)n"} << endl;
+407         \}
+408 
+409         \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+410     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_adce08fccebc11dbd5f395b8a4bb23d2a}\label{class_servico_usuarios_leitor_adce08fccebc11dbd5f395b8a4bb23d2a}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!excluir\+Usuario\+Leitor@{excluir\+Usuario\+Leitor}}
+\index{excluir\+Usuario\+Leitor@{excluir\+Usuario\+Leitor}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{excluir\+Usuario\+Leitor()}{excluirUsuarioLeitor()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::excluir\+Usuario\+Leitor (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Essa funcao recebe como parametro o email do leitor logado no sistema. Apos isso uma query e montada para realizar a exclusao do cadastro, passando como parametro, o email recebido na funcao
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_a8318d7e7dadd648346aeda87fbcd5bca}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+230 \{
+235     \textcolor{keywordtype}{int} consulta,recebe;
+236     queryExclui = \textcolor{stringliteral}{"delete from Leitores where email='"};
+237     queryExclui += email;
+238     queryExclui +=\textcolor{stringliteral}{"';"};
+239 
+240     consulta = \mbox{\hyperlink{class_servico_usuarios_leitor_a8f34dddc0540f729a701d69f948ffb42}{consultarCadastroLeitor}}(email);
+241 
+242     \textcolor{keywordflow}{if}(consulta == -1)
+243     \{
+244       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"Erro, cadastro nao existe em nosso banco de dados\(\backslash\)n"};
+245     \}
+246 
+247     \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+248     recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryExclui);
+249     \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+250 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_a4f533d318634c95d3f756a45c7613047}\label{class_servico_usuarios_leitor_a4f533d318634c95d3f756a45c7613047}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!list\+Dados\+Vocabulario@{list\+Dados\+Vocabulario}}
+\index{list\+Dados\+Vocabulario@{list\+Dados\+Vocabulario}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{list\+Dados\+Vocabulario()}{listDadosVocabulario()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::list\+Dados\+Vocabulario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Nessa funcao o usuario precisa saber o que esta procurando. Para que ocorra corretamente o usuario deve conhecer o nome do vocabulario que procura, passando assim quando for questionado pelo programa. Passa esse nome, uma verificacao primaria e feita, para verificar se o vocabulario realmente existe. Comprovando sua existencia, uma query e montada apresentando assim as informacoes deste vocabulario
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_a44a3bc16ef0888d8ce7dd0c9f03fdc58}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+336 \{
+344   \textcolor{keywordtype}{string} nomeVocabulario;
+345   \textcolor{keywordtype}{string} queryVerifica;
+346   \textcolor{keywordtype}{int} recebe;
+347 
+348   cout << \textcolor{stringliteral}{"Digite o nome do vocabulario desejado: "};
+349   cin >> nomeVocabulario;
+350 
+351 
+352   queryVerifica = \textcolor{stringliteral}{"select count(*) from Vocabulario\_Controlado where nomeVocabulario = '"};
+353   queryVerifica += nomeVocabulario;
+354   queryVerifica += \textcolor{stringliteral}{"';"};
+355 
+356   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+357   recebe = \mbox{\hyperlink{comando_sql_8cpp_af54952694f2fa7d76f969fb74b853cb9}{executDbUsuarioRows}}(queryVerifica);
+358 
+359   \textcolor{keywordflow}{if}(recebe > 0)
+360       \{
+361         queryVerifica = \textcolor{stringliteral}{"select * from Vocabulario\_Controlado where nomeVocabulario = '"};
+362         queryVerifica += nomeVocabulario;
+363         queryVerifica += \textcolor{stringliteral}{"';"};
+364         recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryVerifica);
+365       \}
+366   \textcolor{keywordflow}{else}
+367       \{
+368         cout << \textcolor{stringliteral}{"\(\backslash\)nVocabulario Controlado nao consta em nosso banco de dados\(\backslash\)n"} << endl;
+369       \}
+370 
+371       \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+372   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_a376f7cdbdea50d9a01ce611e79d346c4}\label{class_servico_usuarios_leitor_a376f7cdbdea50d9a01ce611e79d346c4}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!list\+Nome\+Vocabularios@{list\+Nome\+Vocabularios}}
+\index{list\+Nome\+Vocabularios@{list\+Nome\+Vocabularios}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{list\+Nome\+Vocabularios()}{listNomeVocabularios()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::list\+Nome\+Vocabularios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Essa funcao acessa a tabela de vocabulario controlado, onde faz um select de todos os vocabularios cadastrados e apresenta na tela para o usuario.
+
+Implementa \mbox{\hyperlink{class_crlt_servico_usuario_leitor_acfe203ebb5de6884bd4eb5d6167c781f}{Crlt\+Servico\+Usuario\+Leitor}}.
+
+
+\begin{DoxyCode}
+317 \{
+322   \textcolor{keywordtype}{string} queryList;
+323   \textcolor{keywordtype}{int} recebe;
+324   queryList = \textcolor{stringliteral}{"select nomeVocabulario from Vocabulario\_Controlado;"};
+325   \mbox{\hyperlink{comando_sql_8cpp_a4f89ddcbc4cf8f2587d89f72f8c7900d}{conectarDbUsuario}}();
+326   recebe = \mbox{\hyperlink{comando_sql_8cpp_a748197580e7f9acdbf48c78de1f7924b}{executDbUsuario}}(queryList);
+327   \textcolor{keywordflow}{if}(recebe == 0)
+328   \{
+329     cout << \textcolor{stringliteral}{"Erro ao executar query\(\backslash\)n"};
+330   \}
+331   \mbox{\hyperlink{comando_sql_8cpp_a969be9911913568e30d4ae8963338bc3}{desconectarDbUsuario}}();
+332 
+333 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_servico_usuarios_leitor_a9a8e9ac18739ef8e75f670236ba90c20}\label{class_servico_usuarios_leitor_a9a8e9ac18739ef8e75f670236ba90c20}} 
+\index{Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}!opcao\+Escolhida\+Leitor@{opcao\+Escolhida\+Leitor}}
+\index{opcao\+Escolhida\+Leitor@{opcao\+Escolhida\+Leitor}!Servico\+Usuarios\+Leitor@{Servico\+Usuarios\+Leitor}}
+\subsubsection{\texorpdfstring{opcao\+Escolhida\+Leitor()}{opcaoEscolhidaLeitor()}}
+{\footnotesize\ttfamily void Servico\+Usuarios\+Leitor\+::opcao\+Escolhida\+Leitor (\begin{DoxyParamCaption}\item[{int}]{opcao,  }\item[{string}]{email }\end{DoxyParamCaption})}
+
+Essa funcao e a funcao base para escolha de servico apresentada pelo menu. Cada if representa um servico, e de acordo com o parametro recebido pela funcao, na qual o usuario escolhe a Funcao desejada do sistema, esses if\textquotesingle{}s sao acionados, e se necessario para o correto funcionamento das funcoes o email tambem e passado.
+\begin{DoxyCode}
+459 \{
+466   \textcolor{keywordflow}{if}(opcao == 1)
+467   \{
+468     \textcolor{keywordtype}{int} recebe;
+469 
+470     recebe = \mbox{\hyperlink{class_servico_usuarios_leitor_a8f34dddc0540f729a701d69f948ffb42}{consultarCadastroLeitor}}(email);
+471     \textcolor{keywordflow}{if}(recebe != -1)
+472     \{
+473       cout << \textcolor{stringliteral}{"Usuario encontrado com sucesso\(\backslash\)n"};
+474     \}
+475     \textcolor{keywordflow}{else}
+476     \{
+477       cout << \textcolor{stringliteral}{"Erro: Usuario nao consta em nosso banco de dados\(\backslash\)n\(\backslash\)n"};
+478     \}
+479   \}
+480 
+481   \textcolor{keywordflow}{if}(opcao == 2)
+482   \{
+483     \mbox{\hyperlink{class_servico_usuarios_leitor_ad77426aecdda591b99ecbf8259a05b2d}{atualizarUsuarioLeitor}}(email);
+484   \}
+485 
+486   \textcolor{keywordflow}{if}(opcao == 3)
+487   \{
+488     \mbox{\hyperlink{class_servico_usuarios_leitor_adce08fccebc11dbd5f395b8a4bb23d2a}{excluirUsuarioLeitor}}(email);
+489   \}
+490 
+491   \textcolor{keywordflow}{if}(opcao == 4)
+492   \{
+493     \mbox{\hyperlink{class_servico_usuarios_leitor_a376f7cdbdea50d9a01ce611e79d346c4}{listNomeVocabularios}}();
+494   \}
+495 
+496   \textcolor{keywordflow}{if}(opcao == 5)
+497   \{
+498     \mbox{\hyperlink{class_servico_usuarios_leitor_a4f533d318634c95d3f756a45c7613047}{listDadosVocabulario}}();
+499   \}
+500 
+501   \textcolor{keywordflow}{if}(opcao == 6)
+502   \{
+503     \mbox{\hyperlink{class_servico_usuarios_leitor_a79d3a1814ad33930aae0c3a74c879e92}{consultarTermo}}();
+504   \}
+505 
+506   \textcolor{keywordflow}{if}(opcao == 7)
+507   \{
+508     \mbox{\hyperlink{class_servico_usuarios_leitor_a89ed39e45ee1c564e1f62df7154d1b29}{consultarDefinicaoTermo}}();
+509   \}
+510 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{servico_8hpp}{servico.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{servico_8cpp}{servico.\+cpp}}\end{DoxyCompactItemize}

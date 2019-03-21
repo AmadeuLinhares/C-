@@ -1,0 +1,135 @@
+\hypertarget{class_senha}{}\section{Referência da Classe Senha}
+\label{class_senha}\index{Senha@{Senha}}
+
+
+{\ttfamily \#include $<$dominios.\+hpp$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}{set\+Senha}} (string senha, \mbox{\hyperlink{class_nome}{Nome}} $\ast$nome)
+\item 
+string \mbox{\hyperlink{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}{get\+Senha}} ()
+\item 
+string \mbox{\hyperlink{class_senha_a39b73424d487b79e150b97400585e78b}{converte\+Nome}} (string nome)
+\item 
+string \mbox{\hyperlink{class_senha_a64d982211a22299b77487531bdc18e1f}{converte\+Senha}} (string senha)
+\item 
+void \mbox{\hyperlink{class_senha_a5c87578fbe77800cee8c8f51d7a06d17}{valida\+Senha}} (string senha, string nome)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+D\+E\+C\+L\+A\+R\+A\+C\+AO C\+L\+A\+S\+SE S\+E\+N\+HA 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_senha_a39b73424d487b79e150b97400585e78b}\label{class_senha_a39b73424d487b79e150b97400585e78b}} 
+\index{Senha@{Senha}!converte\+Nome@{converte\+Nome}}
+\index{converte\+Nome@{converte\+Nome}!Senha@{Senha}}
+\subsubsection{\texorpdfstring{converte\+Nome()}{converteNome()}}
+{\footnotesize\ttfamily string Senha\+::converte\+Nome (\begin{DoxyParamCaption}\item[{string}]{nome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+385 \{
+386  \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<nome.length(); i++)
+387  \{
+388    nome[i] = toupper(nome[i]);
+389  \}
+390 
+391  \textcolor{keywordflow}{return} nome;
+392 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_senha_a64d982211a22299b77487531bdc18e1f}\label{class_senha_a64d982211a22299b77487531bdc18e1f}} 
+\index{Senha@{Senha}!converte\+Senha@{converte\+Senha}}
+\index{converte\+Senha@{converte\+Senha}!Senha@{Senha}}
+\subsubsection{\texorpdfstring{converte\+Senha()}{converteSenha()}}
+{\footnotesize\ttfamily string Senha\+::converte\+Senha (\begin{DoxyParamCaption}\item[{string}]{senha }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+395 \{
+396  \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<senha.length(); i++)
+397  \{
+398    senha[i] = toupper(senha[i]);
+399  \}
+400 
+401  \textcolor{keywordflow}{return} senha;
+402 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}\label{class_senha_a8786b3d03b1652e73df1cdce46cbbaaf}} 
+\index{Senha@{Senha}!get\+Senha@{get\+Senha}}
+\index{get\+Senha@{get\+Senha}!Senha@{Senha}}
+\subsubsection{\texorpdfstring{get\+Senha()}{getSenha()}}
+{\footnotesize\ttfamily string Senha\+::get\+Senha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+379 \{
+380   \textcolor{keywordflow}{return} this->senha;
+381 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}\label{class_senha_a01bbc2a82c5f405b68f33fe0dc538ec1}} 
+\index{Senha@{Senha}!set\+Senha@{set\+Senha}}
+\index{set\+Senha@{set\+Senha}!Senha@{Senha}}
+\subsubsection{\texorpdfstring{set\+Senha()}{setSenha()}}
+{\footnotesize\ttfamily void Senha\+::set\+Senha (\begin{DoxyParamCaption}\item[{string}]{senha,  }\item[{\mbox{\hyperlink{class_nome}{Nome}} $\ast$}]{nome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+371 \{
+372 
+373     \mbox{\hyperlink{class_senha_a5c87578fbe77800cee8c8f51d7a06d17}{validaSenha}}(senha,nome->\mbox{\hyperlink{class_nome_aad41176173eec20cbbae1576447a3697}{getNome}}());
+374     this->senha = senha;
+375 
+376 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_senha_a5c87578fbe77800cee8c8f51d7a06d17}\label{class_senha_a5c87578fbe77800cee8c8f51d7a06d17}} 
+\index{Senha@{Senha}!valida\+Senha@{valida\+Senha}}
+\index{valida\+Senha@{valida\+Senha}!Senha@{Senha}}
+\subsubsection{\texorpdfstring{valida\+Senha()}{validaSenha()}}
+{\footnotesize\ttfamily void Senha\+::valida\+Senha (\begin{DoxyParamCaption}\item[{string}]{senha,  }\item[{string}]{nome }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+405 \{
+406  \textcolor{keywordtype}{string} senhaConvertida = \mbox{\hyperlink{class_senha_a64d982211a22299b77487531bdc18e1f}{converteSenha}}(senha);
+407  \textcolor{keywordtype}{string} nomeConvertido = \mbox{\hyperlink{class_senha_a39b73424d487b79e150b97400585e78b}{converteNome}}(nome);
+408  \textcolor{keywordtype}{int} tamanhoNome;
+409  \textcolor{keywordtype}{int} i;
+410  tamanhoNome = nomeConvertido.length();
+411  \textcolor{keywordtype}{string} copiaNome;
+412  \textcolor{keywordtype}{int} posicaoNome = senhaConvertida.find(nomeConvertido);
+413  \textcolor{keywordtype}{int} t = posicaoNome;
+414  \textcolor{keywordtype}{int} verifica = 0;
+415 
+416  \textcolor{keywordflow}{for}(i = 0 ; i < tamanhoNome ; i++)
+417  \{
+418    copiaNome[i] = senhaConvertida[t];
+419    t++;
+420  \}
+421 
+422  \textcolor{keywordflow}{for}(i = 0 ; i < tamanhoNome ; i++)
+423  \{
+424 
+425    \textcolor{keywordflow}{if}(copiaNome[i] == nomeConvertido[i])
+426    \{
+427      verifica++;
+428    \}
+429  \}
+430 
+431  \textcolor{keywordflow}{if}(verifica == tamanhoNome)
+432  \{
+433    \textcolor{keywordflow}{throw}\textcolor{stringliteral}{"\(\backslash\)nSenha invalida, seu nome esta contido na senha\(\backslash\)n"};
+434  \}
+435 
+436  cout<<\textcolor{stringliteral}{"\(\backslash\)nSenha Validada com sucesso\(\backslash\)n"};
+437 
+438 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+/\+Users/amadeulinhares/\+Desktop/\+Trabalho3/\mbox{\hyperlink{dominios_8cpp}{dominios.\+cpp}}\end{DoxyCompactItemize}
